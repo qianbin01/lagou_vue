@@ -16,6 +16,10 @@
       if (!this.commonUtils.isPhone()) {
         MessageBox('手机访问效果更佳哦')
       }
+      this.BaseApi.recruit.getRecruit();
+      this.BaseApi.company.getCompany();
+      this.BaseApi.topic.getTopic();
+      this.BaseApi.article.getArticle();
     }
   }
 </script>
