@@ -1,0 +1,64 @@
+$themeColor: #D6E2F3;
+$themeSecondColor: #EBF6FC;
+
+// 背景图片地址和大小
+@mixin bgConfig($url) {
+  background: url($url) no-repeat;
+  background-size: 100% 100%;
+}
+//定位全屏
+@mixin allCover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+//根据宽高定位上下左右居中
+@mixin locInCenterByWH($width,$height) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -$height/2;
+  margin-left: -$width/2;
+}
+//transform上下左右居中
+@mixin locInCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+//定位上下居中
+@mixin locInVCenter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+//定位左右居中
+@mixin locInHCenter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+//宽高
+@mixin widthHeight($width,$height) {
+  width: $width;
+  height: $height;
+}
+//字体大小、行高
+@mixin fontSizeAndLineHeight($size,$line-height) {
+  font-size: $size;
+  line-height: $line-height;
+}
+//行高、整高
+@mixin LineHeightAndHeight($line-height,$height) {
+  line-height: $line-height;
+  height: $height;
+}
+//字体大小，颜色
+@mixin fontSizeAndColor($size,$color) {
+  font-size: $size;
+  color: $color;
+}
+
