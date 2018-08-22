@@ -64,8 +64,6 @@ ubuntu 16.04
   4. npm run dev/npm start
   5. 浏览器访问http://localhost:8085
   
-# License
-    MIT
 
 # 点点你们的小手吧
 知乎专栏：https://zhuanlan.zhihu.com/c_1010582778160779264
@@ -81,4 +79,5 @@ ubuntu 16.04
 
 <img src="http://oh343spqg.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1.jpg" width="150" hegiht="50" />
 
-
+# License
+    MIT
