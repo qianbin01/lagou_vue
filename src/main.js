@@ -7,6 +7,9 @@ import router from './router'
 import config from './config'
 import BaseApi from './api/BaseApi'
 import commonUtils from './utils/commonUtils'
+import 'swiper/dist/css/swiper.css';
+
+require('./style/my-mint.scss');
 
 if (config.MOCK_ENABLE) {
   require('./data');//加载mock

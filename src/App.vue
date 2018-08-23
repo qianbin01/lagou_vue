@@ -1,9 +1,8 @@
 <template>
   <div id="app">
-    <keep-alive>
-      <router-view v-if="$route.meta.keepAlive"></router-view>
-    </keep-alive>
-    <router-view v-if="!$route.meta.keepAlive"></router-view>
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -12,18 +11,46 @@
 
   export default {
     name: 'App',
+    data() {
+      return {}
+    },
     mounted() {
       if (!this.commonUtils.isPhone()) {
         MessageBox('手机访问效果更佳哦')
       }
-      this.BaseApi.recruit.getRecruit();
-      this.BaseApi.company.getCompany();
-      this.BaseApi.topic.getTopic();
-      this.BaseApi.article.getArticle();
     }
   }
 </script>
 
 <style>
+  html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #app {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
 
 </style>

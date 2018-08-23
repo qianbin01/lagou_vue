@@ -1,12 +1,12 @@
 <template>
-  <div class="index_container">
+  <div class="mine_container">
 
   </div>
 </template>
 
 <script>
   export default {
-    name: 'index',
+    name: 'mine',
     data() {
       return {}
     },

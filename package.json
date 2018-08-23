@@ -19,6 +19,7 @@
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.9.2",
     "sass-loader": "^7.0.3",
+    "swiper": "^4.3.5",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
