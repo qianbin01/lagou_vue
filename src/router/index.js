@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 const welcome = r => require.ensure([], () => r(require('../views/welcome')), 'welcome');
 const register = r => require.ensure([], () => r(require('../views/register')), 'register');
+const chooseLocation = r => require.ensure([], () => r(require('../views/chooseLocation')), 'chooseLocation');
 
 
 const baseIndex = r => require.ensure([], () => r(require('../views/baseIndex')), 'baseIndex');
@@ -53,6 +54,11 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: register,
+    },
+    {
+      path: '/chooseLocation',
+      name: 'chooseLocation',
+      component: chooseLocation,
     },
     {
       path: '*',

@@ -1,3 +1,21 @@
+// 存储localStorage
+const setStore = (name, content) => {
+  if (!name) return;
+  if (typeof content !== 'string') {
+    content = JSON.stringify(content);
+  }
+  window.localStorage.setItem(name, content);
+};
+// 读取localStorage
+const getStore = name => {
+  if (!name) return;
+  return window.localStorage.getItem(name);
+};
+//删除localStorage
+const removeStore = name => {
+  if (!name) return;
+  window.localStorage.removeItem(name);
+};
 export const getStyle = (element, attr, NumberMode = 'int') => {
   let target;
   // scrollTop 获取方式不同，没有它不属于style，而且只有document.body才能用
@@ -18,5 +36,8 @@ export const isPhone = () => {
 const commonMethods = {
   getStyle: getStyle,
   isPhone: isPhone,
+  setStore: setStore,
+  getStore: getStore,
+  removeStore: removeStore,
 };
 export default commonMethods;

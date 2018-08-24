@@ -103,6 +103,7 @@
         this.getCodeLock = true;
         this.codeText = `剩余${this.remainSecond}秒`;
         this.getCodeFlag = true;
+        this.$toast('验证码发送成功');
         let that = this;
         //验证码倒计时
         this.remainInterVal = setInterval(function () {
@@ -128,7 +129,7 @@
           this.$messageBox('Oh,记得点下获取验证码哦');
         } else {
           //注册登录后记录在本地标识
-          localStorage.setItem('register', '1');
+          this.commonUtils.setStore('register', true);
           //网络请求 后续写
           this.$router.replace('/baseIndex')
         }

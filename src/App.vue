@@ -15,7 +15,7 @@
     },
     mounted() {
       if (!this.commonUtils.isPhone()) {
-        MessageBox('手机访问效果更佳哦')
+        this.$messageBox('请使用手机访问哦')
       }
     }
   }

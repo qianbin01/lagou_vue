@@ -25,8 +25,8 @@
         loadingRemain: 3,
         loadingInterval: '',
         //标示位
-        register: localStorage.getItem('register'),
-        firstEnter: localStorage.getItem('firstEnter'),
+        register: this.commonUtils.getStore('register'),
+        firstEnter: this.commonUtils.getStore('firstEnter'),
         imgList: [
           require('../assets/loading/welcome1.png'),
           require('../assets/loading/welcome2.png'),
@@ -58,7 +58,7 @@
     methods: {
       goToRegister(index) {
         if (index === 2) {
-          localStorage.setItem('firstEnter', '1');
+          this.commonUtils.setStore('firstEnter', true);
           this.$router.replace('/register')
         }
       }

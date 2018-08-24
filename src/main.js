@@ -18,7 +18,7 @@ Vue.use(Mint);
 Vue.config.productionTip = false;
 Vue.prototype.BaseApi = BaseApi;//将BaseApi挂载在Vue中
 Vue.prototype.commonUtils = commonUtils;//将commonUtils挂载在Vue中
-
+Vue.prototype.$config = config;//将config挂载在Vue中
 Vue.prototype.$messageBox = MessageBox;//弹窗挂载
 Vue.prototype.$toast = Toast;//Toast挂载
 
@@ -28,5 +28,4 @@ new Vue({
   components: {App},
   template: '<App/>'
 });
-
 

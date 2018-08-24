@@ -1,24 +1,33 @@
 <template>
   <div class="home-container">
-    <banner></banner>
+    <search-bar @getDetailStatus="getDetailStatus"></search-bar>
+    <banner v-show="!searchDetailStatus"></banner>
   </div>
 </template>
 
 <script>
   import banner from '../../components/banner'
+  import searchBar from '../../components/searchBar'
 
   export default {
     name: 'home',
     data() {
-      return {}
+      return {
+        searchDetailStatus: false,
+      }
     },
     mounted() {
 
     },
-    methods: {},
+    methods: {
+      getDetailStatus(flag) {
+        this.searchDetailStatus = flag;
+      }
+    },
     computed: {},
     components: {
-      banner
+      banner,
+      searchBar
     }
   }
 </script>

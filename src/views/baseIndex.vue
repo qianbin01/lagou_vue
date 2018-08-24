@@ -21,7 +21,7 @@
     methods: {},
     computed: {},
     components: {
-      bottom
+      bottom,
     }
   }
 </script>
