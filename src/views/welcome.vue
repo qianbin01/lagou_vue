@@ -20,9 +20,11 @@
     name: 'welcome',
     data() {
       return {
+        //loading遮罩层标量
         loadingInit: true,
         loadingRemain: 3,
         loadingInterval: '',
+        //标示位
         register: localStorage.getItem('register'),
         firstEnter: localStorage.getItem('firstEnter'),
         imgList: [
@@ -37,12 +39,13 @@
         direction: 'horizontal',
       });
       let that = this;
+      //遮罩层定时器
       this.loadingInterval = setInterval(function () {
         that.loadingRemain -= 1;
         if (that.loadingRemain <= 0) {
           that.loadingInit = false;
           clearInterval(that.loadingInterval);
-          if (that.firstEnter === '1') {
+          if (that.firstEnter === '1') {//根据标示位跳转不同页面
             if (that.register === '1') {
               that.$router.replace('/baseIndex')
             } else {

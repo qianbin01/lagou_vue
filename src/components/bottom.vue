@@ -57,6 +57,7 @@
     mounted() {
     },
     methods: {
+      //切换底部按钮点击事件
       changeTab(name, url) {
         this.clickTab = name;
         this.$router.push(url);

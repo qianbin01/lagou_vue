@@ -6,7 +6,7 @@
           <img :src="item">
         </div>
       </div>
-      <div class="swiper-pagination" v-if="bannerShow"></div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 </template>
@@ -19,17 +19,16 @@
     data() {
       return {
         imgList: [
-          require('../assets/banner/banner4.jpg'),
+          require('../assets/banner/banner4.jpg'),//banner地址,require防止打包后找不到
           require('../assets/banner/banner3.jpg'),
           require('../assets/banner/banner6.jpg'),
           require('../assets/banner/banner8.jpg'),
         ],
-        bannerShow: true,
-        nowSwiper: '',
+        nowSwiper: '',//swiper对象
       }
     },
     activated() {
-      this.bannerShow = true;
+      //keep-alive页面显示时初始化swiper
       this.nowSwiper = new Swiper('.swiper-container', {
         direction: 'horizontal',
         autoplay: {
@@ -41,6 +40,7 @@
       });
     },
     deactivated() {
+      //keep-alive页面隐藏时销毁swiper
       this.nowSwiper.destroy(false);
     },
     mounted() {

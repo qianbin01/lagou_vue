@@ -57,7 +57,7 @@
           infoText: '进入拉勾代表你已同意',
           infoText2: '《拉勾用户协议》',
           bottomText: '密码登录'
-        },
+        },//手机注册时文本
         loginText: {
           title: '密码登录',
           placeHolder1: '请输入已验证手机号',
@@ -66,7 +66,7 @@
           infoText: '忘记密码?',
           infoText2: '',
           bottomText: '手机号登录'
-        },
+        },//手机登录时文本
         textData: {
           title: '进入拉勾',
           placeHolder1: '请输入常用手机号',
@@ -75,7 +75,7 @@
           infoText: '进入拉勾代表你已同意',
           infoText2: '《拉勾用户协议》',
           bottomText: '密码登录'
-        },
+        },//实际显示文本
       }
     },
     mounted() {
@@ -104,6 +104,7 @@
         this.codeText = `剩余${this.remainSecond}秒`;
         this.getCodeFlag = true;
         let that = this;
+        //验证码倒计时
         this.remainInterVal = setInterval(function () {
           that.remainSecond -= 1;
           that.codeText = `剩余${that.remainSecond}秒`;
@@ -126,13 +127,16 @@
           this.$messageBox('输入正确的11位手机号,密码或验证码填写111111');
           this.$messageBox('Oh,记得点下获取验证码哦');
         } else {
+          //注册登录后记录在本地标识
           localStorage.setItem('register', '1');
+          //网络请求 后续写
           this.$router.replace('/baseIndex')
         }
       },
     },
     computed: {
       disabledEnter() {
+        //页面提交按钮禁用标志位判断
         return (!(this.regexPhone() && this.regexPassWord() && this.getCodeFlag)) && (!(this.regexPhone() && this.regexPassWord() && !this.registerOrLogin))
       }
     },
