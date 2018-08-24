@@ -6,7 +6,7 @@
     <div class="swiper-container welcome-container" v-if="firstEnter==='1'">
       <div class="swiper-wrapper">
         <div class="swiper-slide " v-for="(item,index) in imgList">
-          <img :src="item" @click="goToHome(index)">
+          <img :src="item" @click="goToRegister(index)">
         </div>
       </div>
     </div>
@@ -23,7 +23,8 @@
         loadingInit: true,
         loadingRemain: 3,
         loadingInterval: '',
-        firstEnter: window.localStorage.getItem('firstEnter'),
+        register: localStorage.getItem('register'),
+        firstEnter: localStorage.getItem('firstEnter'),
         imgList: [
           require('../assets/loading/welcome1.png'),
           require('../assets/loading/welcome2.png'),
@@ -42,16 +43,20 @@
           that.loadingInit = false;
           clearInterval(that.loadingInterval);
           if (that.firstEnter === '1') {
-            that.$router.replace('/baseIndex')
+            if (that.register === '1') {
+              that.$router.replace('/baseIndex')
+            } else {
+              that.$router.replace('/register')
+            }
           }
         }
       }, 1000);
     },
     methods: {
-      goToHome(index) {
+      goToRegister(index) {
         if (index === 2) {
           localStorage.setItem('firstEnter', '1');
-          this.$router.replace('/baseIndex')
+          this.$router.replace('/register')
         }
       }
     },

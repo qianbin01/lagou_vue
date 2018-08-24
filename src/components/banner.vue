@@ -1,12 +1,12 @@
 <template>
-  <div class="swiper-container">
+  <div class="banner-container">
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="item in imgList">
           <img :src="item">
         </div>
       </div>
-      <div class="swiper-pagination"></div>
+      <div class="swiper-pagination" v-if="bannerShow"></div>
     </div>
   </div>
 </template>
@@ -24,10 +24,12 @@
           require('../assets/banner/banner6.jpg'),
           require('../assets/banner/banner8.jpg'),
         ],
+        bannerShow: true,
         nowSwiper: '',
       }
     },
     activated() {
+      this.bannerShow = true;
       this.nowSwiper = new Swiper('.swiper-container', {
         direction: 'horizontal',
         autoplay: {
@@ -39,8 +41,7 @@
       });
     },
     deactivated() {
-      console.log(this.nowSwiper[0]);
-      this.nowSwiper[0].destroy(false);
+      this.nowSwiper.destroy(false);
     },
     mounted() {
 
@@ -53,24 +54,28 @@
 <style lang="scss">
   @import "../style/mixin";
 
-  .swiper-container {
-    height: 4rem;
+  .banner-container {
     width: 100%;
-    .swiper-wrapper {
-      height: 100%;
-      .swiper-slide {
+    .swiper-container {
+      height: 4rem;
+      width: 100%;
+      .swiper-wrapper {
         height: 100%;
-        img {
-          height: 4rem;
-          width: 100%;
+        .swiper-slide {
+          height: 100%;
+          img {
+            height: 4rem;
+            width: 100%;
+          }
         }
       }
-    }
-    .swiper-pagination-bullet {
-      background: darkslateblue;
-    }
-    .swiper-pagination-bullet-active {
-      background: $themeColor;
+      .swiper-pagination-bullet {
+        background: darkslateblue;
+      }
+      .swiper-pagination-bullet-active {
+        background: $themeColor;
+      }
     }
   }
+
 </style>
