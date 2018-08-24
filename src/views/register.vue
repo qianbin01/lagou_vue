@@ -88,16 +88,16 @@
       },
       forgetPassword() {
         if (!this.registerOrLogin) {
-          this.$messageBox('这找回密码流程就不做拉')
+          this.$toast('这找回密码流程就不做拉')
         }
       },
       getCode() {
         if (!this.regexPhone()) {
-          this.$messageBox('输入正确的11位手机号码');
+          this.$toast('输入正确的11位手机号码');
           return false
         }
         if (this.getCodeLock) {
-          this.$messageBox('发一次够了够了,别捣乱');
+          this.$toast('发一次够了够了,别捣乱');
           return false
         }
         this.getCodeLock = true;
