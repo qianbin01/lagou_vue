@@ -52,7 +52,7 @@ api地址:
 
 人工智能地址:
 
-爬虫地址:
+爬虫地址:https://github.com/qianbin01/lagou_spider
 # 项目配置
 ubuntu 16.04
 # 运行步骤
