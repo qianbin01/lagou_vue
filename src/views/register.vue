@@ -126,7 +126,8 @@
           this.$messageBox('输入正确的11位手机号,密码或验证码填写111111');
           this.$messageBox('Oh,记得点下获取验证码哦');
         } else {
-          //去下个页面咯
+          localStorage.setItem('register', '1');
+          this.$router.replace('/baseIndex')
         }
       },
     },
