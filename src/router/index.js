@@ -62,7 +62,6 @@ export default new Router({
     },
     {
       path: '*',
-      name: 'welcome',
       component: welcome,
     }
   ]

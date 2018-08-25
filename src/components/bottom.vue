@@ -4,10 +4,10 @@
          v-for="item in clickItems"
          @click="changeTab(item.name,item.url)">
       <div class="item-img">
-        <transition name="bounce">
+        <img v-show="clickTab!==item.name" :src="item.src">
+        <transition name="big-tab">
           <img v-show="clickTab===item.name" :src="item.clicked">
         </transition>
-        <img v-show="clickTab!==item.name" :src="item.src">
       </div>
       <div class="item-text" :class="{item_click_text:clickTab===item.name}">
         {{item.text}}
@@ -32,7 +32,7 @@
           {
             name: 'company',
             src: require('../assets/home/company.png'),
-            clicked: require('../assets/home/comany_click.png'),
+            clicked: require('../assets/home/company_click.png'),
             text: '公司',
             url: '/baseIndex/company',
           },
@@ -77,12 +77,14 @@
     z-index: 100;
     width: 100%;
     height: 1.6rem;
+    background: #f7f7f8;
     border-top: #D6E2F3 solid 1px;
     display: flex;
     justify-content: space-around;
     .bottom-item {
       height: 100%;
       padding-top: 0.2rem;
+      width: 25%;
       text-align: center;
       .item-img {
         img {
@@ -90,6 +92,7 @@
         }
       }
       .item-text {
+        color: #888888;
         font-size: 0.24rem;
       }
       .item_click_text {
@@ -98,8 +101,8 @@
     }
   }
 
-  .bounce-enter-active {
-    animation: bounce-in 0.1s;
+  .big-tab-enter-active {
+    animation: bounce-in 0.5s;
   }
 
   @keyframes bounce-in {
@@ -107,7 +110,7 @@
       transform: scale(0);
     }
     50% {
-      transform: scale(1.5);
+      transform: scale(1.2);
     }
     100% {
       transform: scale(1);

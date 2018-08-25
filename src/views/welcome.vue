@@ -3,7 +3,7 @@
     <transition name="fade">
       <img class='loading-img' v-show="loadingInit" src="../assets/loading/loading.png"/>
     </transition>
-    <div class="swiper-container welcome-container" v-if="firstEnter==='1'">
+    <div class="swiper-container welcome-container" v-if="firstEnter==='1'||!firstEnter">
       <div class="swiper-wrapper">
         <div class="swiper-slide " v-for="(item,index) in imgList">
           <img :src="item" @click="goToRegister(index)">
@@ -58,7 +58,7 @@
     methods: {
       goToRegister(index) {
         if (index === 2) {
-          this.commonUtils.setStore('firstEnter', true);
+          this.commonUtils.setStore('firstEnter', '1');
           this.$router.replace('/register')
         }
       }

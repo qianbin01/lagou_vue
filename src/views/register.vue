@@ -81,6 +81,9 @@
     mounted() {
 
     },
+    beforeDestroy(){
+      this.clearInterval(this.remainInterVal);
+    },
     methods: {
       toggleRegister() {
         this.textData = !this.registerOrLogin ? this.registerData : this.loginText;
@@ -113,7 +116,7 @@
             that.remainSecond = 60;
             that.getCodeLock = false;
             that.codeText = '获取验证码';
-            that.clearInterval(this.remainInterVal);
+            that.clearInterval(that.remainInterVal);
           }
         }, 1000);
       },
@@ -129,12 +132,13 @@
           this.$messageBox('Oh,记得点下获取验证码哦');
         } else {
           //注册登录后记录在本地标识
-          this.commonUtils.setStore('register', true);
+          this.commonUtils.setStore('register', '1');
           //网络请求 后续写
           this.$router.replace('/baseIndex')
         }
       },
     },
+
     computed: {
       disabledEnter() {
         //页面提交按钮禁用标志位判断
