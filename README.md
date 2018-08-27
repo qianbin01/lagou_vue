@@ -35,7 +35,6 @@
 实际api服务器:
 + python3
 + mongodb
-+ ElasticSearch
 
 爬虫：
 + python3
