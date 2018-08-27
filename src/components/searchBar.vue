@@ -68,7 +68,7 @@
         getDetail: false,
         inputValue: '',
         location: this.commonUtils.getStore('location') || '全国',
-        historyList: JSON.parse(this.commonUtils.getStore('historyList')) || [],
+        historyList: JSON.parse(this.commonUtils.getStore('historyList')) || [],//json数组必须转化才能调用数组api
         guessList: this.$config.GUESS_LIKE,
         hotList: this.$config.HOT_COMPANY,
       }
@@ -84,6 +84,7 @@
         this.$emit('getDetailStatus', flag)
       },
       searchItem(item) {
+        //搜索记录存入localstorage
         let histories = JSON.parse(this.commonUtils.getStore('historyList')) || [];
         if (!histories.includes(item)) {
           histories.push(item);

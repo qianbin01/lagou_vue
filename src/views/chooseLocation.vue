@@ -43,6 +43,7 @@
     mounted() {
       this.initData();
       let that = this;
+      //防止页面dom未全部加载完报错
       setTimeout(function () {
         for (let item of that.baseArray) {
           item.top = $('#' + item.idName).offset().top
@@ -52,6 +53,7 @@
         });
         let oneRem = document.body.clientWidth * 0.1;
         $('.scroll-div').on('scroll', function () {
+          //根据滑动距离设置fiexd头
           for (let item of that.baseArray) {
             if (this.scrollTop + oneRem > item.top - 20) {
               that.fiexdItem = item.fiexdItem;
@@ -67,11 +69,13 @@
         this.$router.go(-1);
       },
       initData() {
+        //添加A-Z数组
         let baseAtoZArray = [];
         for (let i = 65; i < 91; i++) {
           baseAtoZArray.push(String.fromCharCode(i));
         }
-        this.baseArray = [...chunk(baseAtoZArray, 6)];
+        //均分数组并添加相应的数据
+        this.baseArray = [...chunk(baseAtoZArray, 7)];
         for (let item of this.baseArray) {
           this.baseArray[this.baseArray.indexOf(item)] = {
             name: item.join(''),
@@ -80,6 +84,7 @@
             list: this.getRegList(item[0], item[item.length - 1]),
           };
         }
+        //添加期望工作城市与热门城市
         this.baseArray = [
           {
             name: '期望工作城市',
@@ -96,6 +101,7 @@
           ...this.baseArray
         ];
       },
+      //匹配数据
       getRegList(spellStartIndex, spellEndIndex) {
         let result = [];
         let reg = RegExp('^[' + spellStartIndex + '-' + spellEndIndex + '][A-Z]+$');
