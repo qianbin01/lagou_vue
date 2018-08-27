@@ -1,10 +1,11 @@
 import http from './index'
 //公司类api
-const getArticle = () => {
-  http.get('/api/article/list', res => {
+const getLocation = () => {
+  http.get('/api/location/get', res => {
     console.log(res.data);
   });
 };
+
 export default {
-  getArticle: getArticle
+  getLocation: getLocation
 }

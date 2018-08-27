@@ -21,7 +21,8 @@
     "sass-loader": "^7.0.3",
     "swiper": "^4.3.5",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "lodash": "latest"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

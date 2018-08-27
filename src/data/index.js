@@ -2,7 +2,8 @@ import Mock from 'mockjs';
 import data from './mockData';
 
 //mock数据加载
-Mock.mock('/api/company', data.company);
-Mock.mock('/api/topic', data.topic);
-Mock.mock('/api/article', data.article);
-Mock.mock('/api/recruit', data.recruit);
+Mock.mock('/api/company/list', data.company);
+Mock.mock('/api/topic/list', data.topic);
+Mock.mock('/api/article/list', data.article);
+Mock.mock('/api/recruit/list', data.recruit);
+Mock.mock('/api/location/get', data.location);

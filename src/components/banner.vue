@@ -41,7 +41,11 @@
     },
     deactivated() {
       //keep-alive页面隐藏时销毁swiper
-      this.nowSwiper.destroy(false);
+      try {
+        this.nowSwiper.destroy(false);
+      } catch (err) {
+        console.log(err);
+      }
     },
     mounted() {
 

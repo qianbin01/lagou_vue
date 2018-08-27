@@ -6,132 +6,105 @@
     </div>
     <div class="empty-div"></div>
     <div class="scroll-div">
-      <div class="info-line " id="base-line" :class="{fiexd_line:fiexdItem==='a'}">
-        期望工作城市
-      </div>
-      <div class="detail-container" :class="{margin_top:fiexdItem==='a'}">
-        <div class="detail-item" @click="setLocation(location)">
-          {{location}}
+      <div class="for-class" v-for="item in baseArray">
+        <div class="info-line"
+             :id="item.idName"
+             :class="{fiexd_line:fiexdItem===item.fiexdItem}">
+          {{item.name}}
+        </div>
+        <div class="detail-container" :class="{margin_top:fiexdItem===1000}">
+          <div class="detail-item"
+               v-for="sub_item in item.list"
+               @click="setLocation(sub_item)">
+            {{sub_item}}
+          </div>
         </div>
       </div>
-      <div class="info-line" id="hot-line" :class="{fiexd_line:fiexdItem==='b'}">
-        <img src="../assets/search/star.png">热门城市
-      </div>
-      <div class="detail-container">
-        <div class="detail-item"
-             v-for="item in hotCities"
-             @click="setLocation(item)">
-          {{item}}
-        </div>
-      </div>
-      <div class="info-line" id="A2D-line" :class="{fiexd_line:fiexdItem==='c'}">
-        ABCD
-      </div>
-      <div class="detail-container">
-        <div class="detail-item"
-             v-for="item in cityA2D"
-             @click="setLocation(item)">
-          {{item}}
-        </div>
-      </div>
-      <div class="info-line" id="E2K-line" :class="{fiexd_line:fiexdItem==='d'}">
-        EFGHIJK
-      </div>
-      <div class="detail-container">
-        <div class="detail-item"
-             v-for="item in cityE2K"
-             @click="setLocation(item)">
-          {{item}}
-        </div>
-      </div>
-      <div class="info-line" id="L2T-line" :class="{fiexd_line:fiexdItem==='e'}">
-        LMNOPQRST
-      </div>
-      <div class="detail-container">
-        <div class="detail-item"
-             v-for="item in cityN2T"
-             @click="setLocation(item)">
-          {{item}}
-        </div>
-      </div>
-      <div class="info-line" id="U2Z-line" :class="{fiexd_line:fiexdItem==='f'}">
-        UVWXYZ
-      </div>
-      <div class="detail-container">
-        <div class="detail-item"
-             v-for="item in cityU2Z"
-             @click="setLocation(item)">
-          {{item}}
-        </div>
-      </div>
+
     </div>
 
   </div>
 </template>
 
 <script>
+  import chunk from "lodash/chunk";
+
   export default {
     name: 'chooseLocation',
     data() {
       return {
         location: this.commonUtils.getStore('location') || '全国',
         hotCities: this.$config.HOT_CITIES,
+        allCities: this.$config.ALL_CITIES,
         fiexdItem: 'a',
-        cityA2D: [],
-        cityE2K: [],
-        cityN2T: [],
-        cityU2Z: [],
+        baseArray: []
       }
     },
     mounted() {
-      for (let item of this.$config.ALL_CITIES) {
-        if ((/^[A-D][A-Z]+$/.test(item.spell))) {
-          this.cityA2D.push(item.name);
-        } else if ((/^[E-K][A-Z]+$/.test(item.spell))) {
-          this.cityE2K.push(item.name);
-        } else if ((/^[N-T][A-Z]+$/.test(item.spell))) {
-          this.cityN2T.push(item.name);
-        } else if ((/^[U-Z][A-Z]+$/.test(item.spell))) {
-          this.cityU2Z.push(item.name);
-        }
-      }
-      $('.scroll-div').css({
-        'height': document.body.clientHeight - $('#header-line').height(),
-      });
-      let oneRem = document.body.clientWidth * 0.1;
+      this.initData();
       let that = this;
-      let base = $('#base-line').offset().top;
-      let hot = $('#hot-line').offset().top;
-      let A2D = $('#A2D-line').offset().top;
-      let E2K = $('#E2K-line').offset().top;
-      let L2T = $('#L2T-line').offset().top;
-      let U2Z = $('#U2Z-line').offset().top;
-      $('.scroll-div').on('scroll', function () {
-        base = Math.max(base, $('#base-line').offset().top);
-        hot = Math.max(hot, $('#hot-line').offset().top);
-        A2D = Math.max(A2D, $('#A2D-line').offset().top);
-        E2K = Math.max(E2K, $('#E2K-line').offset().top);
-        L2T = Math.max(L2T, $('#L2T-line').offset().top);
-        U2Z = Math.max(U2Z, $('#U2Z-line').offset().top);
-        if (this.scrollTop + oneRem - U2Z > -10) {
-          that.fiexdItem = 'f'
-        } else if (this.scrollTop + oneRem - L2T > -10) {
-          that.fiexdItem = 'e'
-        } else if (this.scrollTop + oneRem - E2K > -10) {
-          that.fiexdItem = 'd'
-        } else if (this.scrollTop + oneRem - A2D > -10) {
-          that.fiexdItem = 'c'
-        } else if (this.scrollTop + oneRem - hot > -10) {
-          that.fiexdItem = 'b'
-        } else if (this.scrollTop + oneRem - base > -10) {
-          that.fiexdItem = 'a'
+      setTimeout(function () {
+        for (let item of that.baseArray) {
+          item.top = $('#' + item.idName).offset().top
         }
-      });
+        $('.scroll-div').css({
+          'height': document.body.clientHeight - $('#header-line').height(),
+        });
+        let oneRem = document.body.clientWidth * 0.1;
+        $('.scroll-div').on('scroll', function () {
+          for (let item of that.baseArray) {
+            if (this.scrollTop + oneRem > item.top - 20) {
+              that.fiexdItem = item.fiexdItem;
+            }
+          }
+        });
+      }, 300);
+
     },
     methods: {
       setLocation(item) {
         this.commonUtils.setStore('location', item);
         this.$router.go(-1);
+      },
+      initData() {
+        let baseAtoZArray = [];
+        for (let i = 65; i < 91; i++) {
+          baseAtoZArray.push(String.fromCharCode(i));
+        }
+        this.baseArray = [...chunk(baseAtoZArray, 6)];
+        for (let item of this.baseArray) {
+          this.baseArray[this.baseArray.indexOf(item)] = {
+            name: item.join(''),
+            idName: `${item[0]}2${item[item.length - 1]}-line`,
+            fiexdItem: this.baseArray.indexOf(item),
+            list: this.getRegList(item[0], item[item.length - 1]),
+          };
+        }
+        this.baseArray = [
+          {
+            name: '期望工作城市',
+            idName: `base-line`,
+            fiexdItem: 1000,
+            list: [this.location],
+          },
+          {
+            name: '热门城市',
+            idName: `hot-line`,
+            fiexdItem: 100,
+            list: this.$config.HOT_CITIES,
+          },
+          ...this.baseArray
+        ];
+      },
+      getRegList(spellStartIndex, spellEndIndex) {
+        let result = [];
+        let reg = RegExp('^[' + spellStartIndex + '-' + spellEndIndex + '][A-Z]+$');
+        for (let item of this.$config.ALL_CITIES) {
+          if (reg.test(item.spell)) {
+            result.push(item.name);
+          }
+        }
+        return result;
       }
     },
     computed: {},
