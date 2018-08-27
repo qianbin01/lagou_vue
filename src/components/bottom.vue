@@ -17,6 +17,7 @@
 </template>
 
 <script>
+
   export default {
     name: 'bottom',
     data() {
@@ -37,7 +38,7 @@
             url: '/baseIndex/company',
           },
           {
-            name: 'article',
+            name: 'articles',
             src: require('../assets/home/article.png'),
             clicked: require('../assets/home/article_click.png'),
             text: '言职',
@@ -51,7 +52,7 @@
             url: '/baseIndex/mine',
           },
         ],
-        clickTab: 'home'
+        clickTab: this.$route.path.split('/').pop(),
       }
     },
     mounted() {
