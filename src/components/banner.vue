@@ -29,10 +29,10 @@
     },
     activated() {
       //keep-alive页面显示时初始化swiper
-      this.nowSwiper = new Swiper('.swiper-container', {
+      this.nowSwiper = new Swiper('.banner-container .swiper-container', {
         direction: 'horizontal',
         autoplay: {
-          delay: 2000
+          delay: 3000
         },
         pagination: {
           el: '.swiper-pagination',
