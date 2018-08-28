@@ -1,7 +1,7 @@
 <template>
   <div class="welcome">
     <transition name="fade">
-      <img class='loading-img' v-show="loadingInit" src="../assets/loading/loading.png"/>
+      <img class='loading-img' v-show="loadingInit" src="../assets/img/loading/loading.png"/>
     </transition>
     <div class="swiper-container welcome-container" v-if="firstEnter==='1'||!firstEnter">
       <div class="swiper-wrapper">
@@ -28,9 +28,9 @@
         register: this.commonUtils.getStore('register'),
         firstEnter: this.commonUtils.getStore('firstEnter'),
         imgList: [
-          require('../assets/loading/welcome1.png'),
-          require('../assets/loading/welcome2.png'),
-          require('../assets/loading/welcome3.png'),
+          require('../assets/img/loading/welcome1.png'),
+          require('../assets/img/loading/welcome2.png'),
+          require('../assets/img/loading/welcome3.png'),
         ]
       }
     },

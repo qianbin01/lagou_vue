@@ -5,7 +5,7 @@
         {{textData.title}}
       </div>
       <div class="head-img">
-        <img src="../assets/head/boy.png">
+        <img src="../assets/img/head/boy.png">
       </div>
     </div>
     <div class="input-form code-form">
@@ -82,7 +82,7 @@
 
     },
     beforeDestroy(){
-      this.clearInterval(this.remainInterVal);
+      clearInterval(this.remainInterVal);
     },
     methods: {
       toggleRegister() {

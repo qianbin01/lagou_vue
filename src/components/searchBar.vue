@@ -1,18 +1,18 @@
 <template>
   <div class="searchBar-container">
     <div class="fake-search" v-show="!getDetail" @click="searchDetail(true)">
-      <img src="../assets/search/search.png">阿里巴巴
+      <img src="../assets/img/search/search.png">阿里巴巴
     </div>
     <div class="detail-search" v-show="getDetail">
       <div class="header-line">
         <transition name="left-come">
           <div class="location-div" v-show="getDetail" @click="showLocation">
-            {{location}} <img src="../assets/search/arrow-down.png">
+            {{location}} <img src="../assets/img/search/arrow-down.png">
           </div>
         </transition>
         <transition name="right-come">
           <div class="search-input-div" v-show="getDetail">
-            <img src="../assets/search/search.png">
+            <img src="../assets/img/search/search.png">
             <input placeholder="阿里巴巴" title="输入框" v-model="inputValue">
           </div>
         </transition>
@@ -25,7 +25,7 @@
       </div>
       <div class="info-text" v-show="historyList.length>0">
         搜索历史
-        <img src="../assets/search/trash.png" @click="emptyHistory">
+        <img src="../assets/img/search/trash.png" @click="emptyHistory">
       </div>
       <div class="tag-container" v-show="historyList.length>0">
         <div class="tag-item"

@@ -19,10 +19,10 @@
     data() {
       return {
         imgList: [
-          require('../assets/banner/banner4.jpg'),//banner地址,require防止打包后找不到
-          require('../assets/banner/banner3.jpg'),
-          require('../assets/banner/banner6.jpg'),
-          require('../assets/banner/banner8.jpg'),
+          require('../assets/img/banner/banner4.jpg'),//banner地址,require防止打包后找不到
+          require('../assets/img/banner/banner3.jpg'),
+          require('../assets/img/banner/banner6.jpg'),
+          require('../assets/img/banner/banner8.jpg'),
         ],
         nowSwiper: '',//swiper对象
       }
