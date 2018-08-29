@@ -74,7 +74,7 @@
         this.searchDetailStatus = flag;
       },
       formatTitle(title) {
-        return title.length < 38 ? title : title.substring(1, 38) + '...'
+        return title.length < 32 ? title : title.substring(1, 32) + '...'
       }
     },
     computed: {},
