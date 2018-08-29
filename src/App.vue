@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <transition name="fade">
-      <router-view></router-view>
+    <transition :name="transition">
+      <router-view class="Router"></router-view>
     </transition>
   </div>
 </template>
@@ -11,7 +11,18 @@
   export default {
     name: 'App',
     data() {
-      return {}
+      return {
+        transition: 'fade'
+      }
+    },
+    watch: {
+      '$route'(to, from) {
+        if (from.meta && from.meta.direction === 'slide-left') {
+          this.transition = 'slide-right'
+        } else {
+          this.transition = to.meta.direction || 'fade';
+        }
+      }
     },
     mounted() {
       if (!this.commonUtils.isPhone()) {
@@ -44,6 +55,15 @@
 
   }
 
+  .Router {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all .377s ease;
+    box-sizing: border-box;
+    overflow: auto;
+  }
+
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;
   }
@@ -51,5 +71,20 @@
   .fade-enter, .fade-leave-to {
     opacity: 0;
   }
+
+  .slide-left-enter,
+  .slide-right-leave-active {
+    opacity: 0;
+    -webkit-transform: translate(100%, 0);
+    transform: translate(100%, 0);
+  }
+
+  .slide-left-leave-active,
+  .slide-right-enter {
+    opacity: 0;
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100% 0);
+  }
+
 
 </style>

@@ -2,7 +2,7 @@
   <div class="chooseLocation-container">
     <div class="header-line" id="header-line">
       选择城市
-      <img src="../assets/img/search/close.png" @click="$router.go(-1)">
+      <img src="../../assets/img/search/close.png" @click="$router.go(-1)">
     </div>
     <div class="empty-div"></div>
     <div class="scroll-div">

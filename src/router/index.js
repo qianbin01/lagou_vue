@@ -3,10 +3,12 @@ import Router from 'vue-router'
 
 const welcome = r => require.ensure([], () => r(require('../views/welcome')), 'welcome');
 const register = r => require.ensure([], () => r(require('../views/register')), 'register');
-const chooseLocation = r => require.ensure([], () => r(require('../views/chooseLocation')), 'chooseLocation');
-
-
 const baseIndex = r => require.ensure([], () => r(require('../views/baseIndex')), 'baseIndex');
+
+const chooseLocation = r => require.ensure([], () => r(require('../views/others/chooseLocation')), 'chooseLocation');
+const newsList = r => require.ensure([], () => r(require('../views/others/newsList')), 'newsList');
+
+
 const home = r => require.ensure([], () => r(require('../views/home/home')), 'home');
 const company = r => require.ensure([], () => r(require('../views/company/company')), 'company');
 const articles = r => require.ensure([], () => r(require('../views/article/articles')), 'articles');
@@ -59,6 +61,17 @@ export default new Router({
       path: '/chooseLocation',
       name: 'chooseLocation',
       component: chooseLocation,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/newsList',
+      name: 'newsList',
+      component: newsList,
+      meta: {
+        direction: 'slide-left'
+      }
     },
     {
       path: '*',

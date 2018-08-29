@@ -1,7 +1,7 @@
 <template>
   <div class="home-container">
-    <!--<search-bar @getDetailStatus="getDetailStatus"></search-bar>-->
-    <!--<banner v-show="!searchDetailStatus"></banner>-->
+    <search-bar @getDetailStatus="getDetailStatus"></search-bar>
+    <banner v-show="!searchDetailStatus"></banner>
     <div class="hot_container">
       <div class="left_container">
         <div class="font_div">拉勾</div>
@@ -12,6 +12,7 @@
           <div class="swiper-wrapper news-wrapper">
             <div class="swiper-slide news-slide"
                  v-for="(item,index) in articleList"
+                 @click="goToNewsList"
                  v-if="index<5">
               <div class="swiper_tag_container">
                 <div class="swiper_tag"
@@ -75,6 +76,9 @@
       },
       formatTitle(title) {
         return title.length < 32 ? title : title.substring(1, 32) + '...'
+      },
+      goToNewsList() {
+        this.$router.push('/newsList')
       }
     },
     computed: {},
@@ -126,6 +130,7 @@
                 border: $themeColor solid 1px;
                 margin: 0.05rem;
                 padding: 0 0.2rem;
+                text-align: center;
                 color: $themeColor;
               }
             }

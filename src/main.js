@@ -23,6 +23,7 @@ Vue.prototype.$config = config;//将config挂载在Vue中
 Vue.prototype.$messageBox = MessageBox;//弹窗挂载
 Vue.prototype.$toast = Toast;//Toast挂载
 
+
 new Vue({
   el: '#app',
   router,
@@ -30,4 +31,5 @@ new Vue({
   components: {App},
   template: '<App/>'
 });
+
 
