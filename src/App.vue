@@ -16,9 +16,12 @@
       }
     },
     watch: {
-      '$route'(to, from) {
+      '$route'(to, from) {//根据路由确定是返回还是前进，默认动画为fade
         if (from.meta && from.meta.direction === 'slide-left') {
-          this.transition = 'slide-right'
+          this.transition = 'slide-right';
+          if (to.meta.direction === 'slide-left') {
+            this.transition = to.meta.direction
+          }
         } else {
           this.transition = to.meta.direction || 'fade';
         }
@@ -53,6 +56,11 @@
     margin: 0;
     padding: 0;
 
+  }
+
+  @font-face {
+    font-family: 'big-font';
+    src: url("./assets/fonts/top_font.ttf") format("truetype");
   }
 
   .Router {

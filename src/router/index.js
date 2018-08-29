@@ -7,6 +7,7 @@ const baseIndex = r => require.ensure([], () => r(require('../views/baseIndex'))
 
 const chooseLocation = r => require.ensure([], () => r(require('../views/others/chooseLocation')), 'chooseLocation');
 const newsList = r => require.ensure([], () => r(require('../views/others/newsList')), 'newsList');
+const newsDetail = r => require.ensure([], () => r(require('../views/others/newsDetail')), 'newsDetail');
 
 
 const home = r => require.ensure([], () => r(require('../views/home/home')), 'home');
@@ -69,6 +70,14 @@ export default new Router({
       path: '/newsList',
       name: 'newsList',
       component: newsList,
+      meta: {
+        direction: 'slide-left'//需要左滑动画的属性
+      }
+    },
+    {
+      path: '/newsDetail',
+      name: 'newsDetail',
+      component: newsDetail,
       meta: {
         direction: 'slide-left'
       }

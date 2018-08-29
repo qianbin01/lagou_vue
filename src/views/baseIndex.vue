@@ -16,7 +16,6 @@
       return {}
     },
     mounted() {
-      this.BaseApi.recruit.getRecruit();
     },
     methods: {},
     computed: {},

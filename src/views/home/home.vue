@@ -50,10 +50,12 @@
       }
     },
     mounted() {
+      //网络请求
       this.BaseApi.news.getNews(res => {
         this.articleList = res.data.dataList;
-        console.log(this.articleList)
       });
+    },
+    activated() {
       this.nowSwiper = new Swiper('.right_container .news-container', {
         direction: 'vertical',
         autoplay: {
@@ -74,6 +76,7 @@
       getDetailStatus(flag) {
         this.searchDetailStatus = flag;
       },
+      //太长字符截取
       formatTitle(title) {
         return title.length < 32 ? title : title.substring(1, 32) + '...'
       },
@@ -90,11 +93,6 @@
 </script>
 <style scoped lang="scss">
   @import "../../style/mixin";
-
-  @font-face {
-    font-family: 'big-font';
-    src: url("../../assets/fonts/top_font.ttf") format("truetype");
-  }
 
   .home-container {
     width: 100%;
