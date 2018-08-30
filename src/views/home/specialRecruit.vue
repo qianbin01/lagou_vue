@@ -50,6 +50,7 @@
       for (let i = 0; i < 50; i++) {
         this.dataList.push(i);
       }
+      //不同type修改slot相应内容
       switch (this.$route.query.flag) {
         case 'hot':
           this.title = '热门职位';

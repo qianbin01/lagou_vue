@@ -32,6 +32,7 @@
       this.pullBox = this.randomString(20) + (new Date()).valueOf();
     },
     methods: {
+      //随机生成字符串id 加载滑动组件
       randomString(len) {
         len = len || 32;
         let chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz';
@@ -43,6 +44,7 @@
         }
         return pwd;
       },
+      //切换不同tab
       checkSpan(flag) {
         this.checkedSpan = flag
       },

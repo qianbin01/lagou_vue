@@ -33,10 +33,8 @@
     },
     methods: {
       bindTouchEvent() {
-
         this.el.addEventListener('touchstart', this._touchStart);
         this.el.addEventListener('touchmove', this._touchMove);
-
         this.el.addEventListener('touchend', this._touchEnd);
       },
       removeTouchEvent() {

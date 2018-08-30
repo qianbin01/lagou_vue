@@ -129,9 +129,6 @@
       getDetailStatus(flag) {
         this.searchDetailStatus = flag;
       },
-      checkSpan(flag) {
-        this.checkedSpan = flag
-      },
       //太长字符截取
       formatTitle(title) {
         return title.length < 32 ? title : title.substring(1, 32) + '...'
@@ -156,6 +153,7 @@
       goToInterview() {
         location.href = 'https://faxian.lagou.com/discover/f2f913cc86e5488ea48c5b753b0ee9b7.html'
       },
+      //职位跳转
       goToRecruit() {
         this.$router.push('/baseIndex/recruitDetailList');
       }
