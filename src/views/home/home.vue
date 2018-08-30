@@ -30,7 +30,53 @@
       </div>
     </div>
     <div class="middle_container">
+      <div class="three-tab">
+        <div class="tab-item" @click="goToSpecial('hot')">
+          <img src="../../assets/img/home/hot.png"> 热门职位
+        </div>
+        <div class="tab-item" @click="goToSpecial('flash')">
+          <img src="../../assets/img/home/flash.png">极速反馈
+        </div>
+        <div class="tab-item" @click="goToSpecial('salary')">
+          <img src="../../assets/img/home/salary.png">高薪优选
+        </div>
+      </div>
+      <div class="divide-line">
 
+      </div>
+      <div class="bottom-div">
+        <div class="bottom-left-div">
+          <img src="../../assets/img/home/middle_one.png" @click="goToFamous">
+        </div>
+        <div class="bottom-right-div">
+          <div class="bottom-right-item-div">
+            <img src="../../assets/img/home/middle_two.png" @click="goToResume">
+          </div>
+          <div class="bottom-right-item-div" style="margin-top: 0.2rem">
+            <img src="../../assets/img/home/middle_three.png" @click="goToInterview">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-container">
+      <div class="header-container">
+        <div class="header-title">职位列表</div>
+        <div class="header-title">
+          <span style="margin-right: 0.4rem"
+                :class="{checked_span:checkedSpan==='recommand'}"
+                @click="checkSpan('recommand')">推荐 </span>
+          <span :class="{checked_span:checkedSpan==='newest'}"
+                @click="checkSpan('newest')">最新</span>
+        </div>
+      </div>
+      <recruit-item :item="item" v-for="(item,index) in items"
+                    :key="index"
+                    v-if="index<3" @clickRecruitItem="goToRecruit">
+
+      </recruit-item>
+    </div>
+    <div class="bottom-info-div">我是底线,详情点职位跳转吧</div>
+    <div style="height: 1.6rem;width: 100%">
     </div>
   </div>
 </template>
@@ -38,6 +84,8 @@
 <script>
   import banner from '../../components/banner'
   import searchBar from '../../components/searchBar'
+  import recruitItem from '../../components/recruitItem'
+
   import Swiper from 'swiper';
 
   export default {
@@ -45,14 +93,19 @@
     data() {
       return {
         searchDetailStatus: false,
+        nowSwiper: '',
+        checkedSpan: 'recommand',
         articleList: [],
-        nowSwiper: ''
+        items: [],
       }
     },
     mounted() {
       //网络请求
       this.BaseApi.news.getNews(res => {
         this.articleList = res.data.dataList;
+      });
+      this.BaseApi.recruit.getRecruit(res => {
+        this.items = res.data.dataList;
       });
     },
     activated() {
@@ -76,18 +129,42 @@
       getDetailStatus(flag) {
         this.searchDetailStatus = flag;
       },
+      checkSpan(flag) {
+        this.checkedSpan = flag
+      },
       //太长字符截取
       formatTitle(title) {
         return title.length < 32 ? title : title.substring(1, 32) + '...'
       },
       goToNewsList() {
         this.$router.push('/newsList')
+      },
+      goToSpecial(flag) {
+        this.$router.push({
+          path: '/specialRecruit',
+          query: {
+            flag: flag
+          }
+        })
+      },
+      goToFamous() {
+        location.href = 'https://faxian.lagou.com/discover/d6597003965f41a792744f3c452c7ca9.html'
+      },
+      goToResume() {
+        location.href = 'https://faxian.lagou.com/discover/dee0163af8b548d8a7cb064d97866ff6.html'
+      },
+      goToInterview() {
+        location.href = 'https://faxian.lagou.com/discover/f2f913cc86e5488ea48c5b753b0ee9b7.html'
+      },
+      goToRecruit() {
+        this.$router.push('/baseIndex/recruitDetailList');
       }
     },
     computed: {},
     components: {
       banner,
-      searchBar
+      searchBar,
+      recruitItem
     }
   }
 </script>
@@ -141,6 +218,85 @@
           }
         }
       }
+    }
+    .middle_container {
+      margin: 0.2rem 0;
+      background: white;
+      width: 100%;
+      padding: 0.2rem 0.5rem;
+      .three-tab {
+        margin-top: 0.3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .tab-item {
+          img {
+            width: 0.5rem;
+            margin-right: 0.1rem;
+          }
+        }
+      }
+      .divide-line {
+        background: #dedede;
+        width: 100%;
+        margin: 0.5rem 0;
+        height: 1px;
+      }
+      .bottom-div {
+        display: flex;
+        background: white;
+        .bottom-left-div {
+          width: 50%;
+          height: 3rem;
+          margin-right: 3%;
+          img {
+            width: 100%;
+            max-height: 100%;
+          }
+        }
+        .bottom-right-div {
+          width: 45%;
+          height: 3rem;
+          .bottom-right-item-div {
+            height: 1.4rem;
+            img {
+              width: 100%;
+              max-height: 100%;
+            }
+          }
+        }
+      }
+    }
+    .bottom-container {
+      margin-top: 0.2rem;
+      .header-container {
+        width: 100%;
+        height: 1rem;
+        background: white;
+        line-height: 1rem;
+        font-size: 0.42rem;
+        display: flex;
+        color: #777777;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: #dedede solid 1px;
+        padding: 0.6rem 0;
+        .header-title {
+          text-align: center;
+          margin: 0.2rem 0.5rem;
+          span {
+            font-size: 0.36rem;
+          }
+          .checked_span {
+            color: #333333;
+            border-bottom: #11A983 solid 2px;
+          }
+        }
+      }
+    }
+    .bottom-info-div {
+      text-align: center;
+      margin-bottom: 0.2rem;
     }
   }
 </style>

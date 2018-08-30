@@ -49,7 +49,19 @@
     margin: 0;
     padding: 0;
   }
-
+  a{
+    text-decoration:none;
+    color: #222222;
+  }
+  a:link {
+    text-decoration: none;
+  }
+  a:visited {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
   #app {
     width: 100%;
     height: 100%;

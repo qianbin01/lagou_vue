@@ -5,12 +5,14 @@ const welcome = r => require.ensure([], () => r(require('../views/welcome')), 'w
 const register = r => require.ensure([], () => r(require('../views/register')), 'register');
 const baseIndex = r => require.ensure([], () => r(require('../views/baseIndex')), 'baseIndex');
 
-const chooseLocation = r => require.ensure([], () => r(require('../views/others/chooseLocation')), 'chooseLocation');
-const newsList = r => require.ensure([], () => r(require('../views/others/newsList')), 'newsList');
-const newsDetail = r => require.ensure([], () => r(require('../views/others/newsDetail')), 'newsDetail');
-
-
 const home = r => require.ensure([], () => r(require('../views/home/home')), 'home');
+const chooseLocation = r => require.ensure([], () => r(require('../views/home/chooseLocation')), 'chooseLocation');
+const newsList = r => require.ensure([], () => r(require('../views/home/newsList')), 'newsList');
+const newsDetail = r => require.ensure([], () => r(require('../views/home/newsDetail')), 'newsDetail');
+const specialRecruit = r => require.ensure([], () => r(require('../views/home/specialRecruit')), 'specialRecruit');
+const recruitDetailList = r => require.ensure([], () => r(require('../views/home/recruitDetailList')), 'recruitDetailList');
+
+
 const company = r => require.ensure([], () => r(require('../views/company/company')), 'company');
 const articles = r => require.ensure([], () => r(require('../views/article/articles')), 'articles');
 const mine = r => require.ensure([], () => r(require('../views/mine/mine')), 'mine');
@@ -45,7 +47,12 @@ export default new Router({
           path: '/baseIndex/mine',
           name: 'mine',
           component: mine,
-        }
+        },
+        {
+          path: '/baseIndex/recruitDetailList',
+          name: 'recruitDetailList',
+          component: recruitDetailList,
+        },
       ]
     },
     {
@@ -78,6 +85,14 @@ export default new Router({
       path: '/newsDetail',
       name: 'newsDetail',
       component: newsDetail,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/specialRecruit',
+      name: 'specialRecruit',
+      component: specialRecruit,
       meta: {
         direction: 'slide-left'
       }

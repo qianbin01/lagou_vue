@@ -1,6 +1,6 @@
 <template>
   <div class="pull-to-refresh-app">
-    <div class="content-box">
+    <div :id="pullBox">
       <div class="refreshing-box">
         <div>{{tipText}}</div>
       </div>
@@ -14,6 +14,11 @@
 <script>
   export default {
     name: 'PullToRefresh',
+    props: {
+      pullBox: {
+        default: 'refreshing-box'
+      }
+    },
     data() {
       return {
         startX: '',
@@ -30,12 +35,17 @@
       bindTouchEvent() {
 
         this.el.addEventListener('touchstart', this._touchStart);
-
         this.el.addEventListener('touchmove', this._touchMove);
 
         this.el.addEventListener('touchend', this._touchEnd);
       },
+      removeTouchEvent() {
+        this.el.removeEventListener('touchstart', this._touchStart, false);
 
+        this.el.removeEventListener('touchmove', this._touchMove, false);
+
+        this.el.removeEventListener('touchend', this._touchEnd, false);
+      },
       _touchStart(e) {
         let touch = e.changedTouches[0];
         this.tipText = '下拉刷新';
@@ -45,6 +55,8 @@
       _touchMove(e) {
         let touch = e.changedTouches[0];
         let _move = touch.clientY - this.startY;
+
+        console.log($('.present-box').offset().top);
         this.bottomFlag = $('.present-box').offset().top + $('.present-box').height() - document.body.clientHeight <= 40;
         if ($('.present-box').offset().top >= 40) {
           if (_move > 0 && _move < 1000) {
@@ -97,24 +109,48 @@
         this.moveDistance = 0;
       }
     },
+    watch: {
+      pullBox(newValue) {
+        if (newValue) {
+          let that = this;
+          setTimeout(function () {
+            that.el = document.getElementById(that.pullBox);
+            if (that.el) {
+              that.el.style.position = 'relative';
+              that.bindTouchEvent();
+            }
+          }, 100);
+        }
+      }
+    },
     mounted() {
-      this.el = document.querySelector(".content-box");
-      this.bindTouchEvent();
+      if (this.pullBox === 'refreshing-box') {
+        let that = this;
+        setTimeout(function () {
+          that.el = document.getElementById(that.pullBox);
+          if (that.el) {
+            that.el.style.position = 'relative';
+            that.bindTouchEvent();
+          }
+        }, 100);
+      }
+    },
+    beforeDestroy() {
+      if (this.el) {
+        this.removeTouchEvent()
+      }
     }
   }
 </script>
 <style scoped lang="scss">
   .pull-to-refresh-app {
-    .content-box {
-      position: relative;
-      .refreshing-box {
-        line-height: 40px;
-        height: 40px;
-        text-align: center;
-      }
-      .present-box {
-        background-color: lighten(#c4e3f3, 10%);
-      }
+    .refreshing-box {
+      line-height: 40px;
+      height: 40px;
+      text-align: center;
+    }
+    .present-box {
+      background-color: lighten(#c4e3f3, 10%);
     }
   }
 </style>

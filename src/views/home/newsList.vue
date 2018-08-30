@@ -5,7 +5,7 @@
       <img src="../../assets/img/arrow/left.png" @click="$router.go(-1)">
       拉勾头条
     </div>
-    <pull-to-refresh @loadTop="loadTop" @loadBottom="loadBottom">
+    <pull-to-refresh  @loadTop="loadTop" @loadBottom="loadBottom">
       <div class="news-container">
         <div class="news-item"
              @click="seeDetail(item)"
@@ -39,7 +39,7 @@
     },
     mounted() {
       this.BaseApi.news.getNews(res => {
-        this.newsList = res.data.dataList;
+        this.newsList = [...res.data.dataList, ...res.data.dataList, ...res.data.dataList];
       });
     },
     methods: {
