@@ -52,9 +52,9 @@
 # 线上地址
 
 # 说明
-代理api地址:
+代理api地址:https://github.com/qianbin01/lagou_node
 
-api地址:
+api地址:https://github.com/qianbin01/lagou_python_api
 
 人工智能地址:
 
