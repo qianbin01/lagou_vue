@@ -122,6 +122,7 @@
           }, 100);
         }
       },
+      //根据高度实时变化
       pullRefreshTopHeight(newValue) {
         if (newValue !== 0) {
           this.$nextTick(function () {
@@ -143,6 +144,7 @@
       ]),
     },
     mounted() {
+      //对不同的id注册事件
       if (this.pullBox === 'refreshing-box') {
         let that = this;
         setTimeout(function () {

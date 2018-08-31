@@ -1,6 +1,5 @@
 <template>
   <div class="newsList-container">
-
     <div class="header-container">
       <img src="../../assets/img/arrow/left.png" @click="$router.go(-1)">
       拉勾头条

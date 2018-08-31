@@ -1,4 +1,5 @@
 <template>
+  <!--单项职位-->
   <div class="recruit-item" @click="emitEvent">
     <div class="recruit-detail">
       <div class="recruit-detail-left">

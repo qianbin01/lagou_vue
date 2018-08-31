@@ -1,10 +1,12 @@
 <template>
   <div class="header-container" ref="mHeader">
+    <!--自定义头左边-->
     <slot name="left">
       <div class="left-div">
         <img src="../assets/img/arrow/left.png" @click="$router.go(-1)">
       </div>
     </slot>
+    <!--自定义头中-->
     <slot name="middle">
       <div class="middle-div">
         <img src="../assets/img/search/search.png">
@@ -12,6 +14,7 @@
         <img src="../assets/img/search/close.png" v-show="inputValue">
       </div>
     </slot>
+    <!--自定义头右-->
     <slot name="right">
       <div class="right-div">
         <img src="../assets/img/search/scan.png" @click="$toast('做不到啊( ´╥ω╥`)')">
