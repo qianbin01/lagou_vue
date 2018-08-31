@@ -1,5 +1,5 @@
 <template>
-  <div class="bottom-tab">
+  <div class="bottom-tab" v-show="bottomShow">
     <div class="bottom-item"
          v-for="item in clickItems"
          @click="changeTab(item.name,item.url)">
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
 
   export default {
     name: 'bottom',
@@ -64,7 +65,11 @@
         this.$router.push(url);
       }
     },
-    computed: {},
+    computed: {
+      ...mapState([
+        'bottomShow'
+      ]),
+    },
     components: {}
   }
 </script>

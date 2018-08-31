@@ -1,7 +1,7 @@
 <template>
   <div class="pull-to-refresh-app">
     <div :id="pullBox">
-      <div class="refreshing-box">
+      <div class="refreshing-box" id="refreshBox">
         <div>{{tipText}}</div>
       </div>
       <div class="present-box">
@@ -12,6 +12,8 @@
 </template>
 
 <script>
+  import {mapMutations, mapState} from 'vuex'
+
   export default {
     name: 'PullToRefresh',
     props: {
@@ -51,10 +53,9 @@
         this.startY = touch.clientY;
       },
       _touchMove(e) {
+        this.$store.commit('bottomShowFalse');
         let touch = e.changedTouches[0];
         let _move = touch.clientY - this.startY;
-
-        console.log($('.present-box').offset().top);
         this.bottomFlag = $('.present-box').offset().top + $('.present-box').height() - document.body.clientHeight <= 40;
         if ($('.present-box').offset().top >= 40) {
           if (_move > 0 && _move < 1000) {
@@ -67,6 +68,7 @@
         }
       },
       _touchEnd(e) {
+        this.$store.commit('bottomShowTrue');
         if (this.bottomFlag) {
           this.$emit('loadBottom');
         }
@@ -119,7 +121,26 @@
             }
           }, 100);
         }
+      },
+      pullRefreshTopHeight(newValue) {
+        if (newValue !== 0) {
+          this.$nextTick(function () {
+            $('#refreshBox').css({height: newValue, paddingTop: newValue / 2 + 20});
+          });
+        } else {
+          this.$nextTick(function () {
+            $('#refreshBox').css({height: 40, paddingTop: 20});
+          });
+        }
       }
+    },
+    computed: {
+      ...mapState([
+        'pullRefreshTopHeight'
+      ]),
+      ...mapMutations([
+        'setPullRefreshTopHeight', 'bottomShowTrue', 'bottomShowFalse'
+      ]),
     },
     mounted() {
       if (this.pullBox === 'refreshing-box') {
@@ -133,17 +154,36 @@
         }, 100);
       }
     },
+    activated() {
+      let that = this;
+      setTimeout(function () {
+        that.el = document.getElementById(that.pullBox);
+        if (that.el) {
+          that.el.style.position = 'relative';
+          that.bindTouchEvent();
+        }
+      }, 100);
+    },
+    deactivated() {
+      if (this.el) {
+        this.removeTouchEvent()
+      }
+      this.$store.commit('setPullRefreshTopHeight', 0);
+    },
     beforeDestroy() {
       if (this.el) {
         this.removeTouchEvent()
       }
+      this.$store.commit('setPullRefreshTopHeight', 0);
     }
   }
 </script>
 <style scoped lang="scss">
+  @import "../style/mixin";
+
   .pull-to-refresh-app {
     .refreshing-box {
-      line-height: 40px;
+      padding-top: 20px;
       height: 40px;
       text-align: center;
     }

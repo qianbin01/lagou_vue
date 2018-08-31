@@ -7,7 +7,7 @@
       <div class="header-line">
         <transition name="left-come">
           <div class="location-div" v-show="getDetail" @click="showLocation">
-            {{location}} <img src="../assets/img/search/arrow-down.png">
+            {{location}} <img src="../assets/img/arrow/arrow-down.png">
           </div>
         </transition>
         <transition name="right-come">

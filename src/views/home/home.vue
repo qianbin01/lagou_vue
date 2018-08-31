@@ -129,6 +129,9 @@
       getDetailStatus(flag) {
         this.searchDetailStatus = flag;
       },
+      checkSpan(item) {
+        this.checkedSpan = item;
+      },
       //太长字符截取
       formatTitle(title) {
         return title.length < 32 ? title : title.substring(1, 32) + '...'

@@ -53,11 +53,9 @@
         setTimeout(function () {
           resolve();
         }, 1000);
-        this.newsList = [...this.newsList];
       },
       loadBottom() {
         console.log('上拉自动加载');
-        this.newsList = [...this.newsList];
       }
     },
     computed: {}
@@ -69,8 +67,8 @@
 </script>
 <style scoped lang="scss">
   @import "../style/mixin";
-
   .recruitList-container {
+    position: relative;
     .item-list-container {
       background: white;
       position: relative;

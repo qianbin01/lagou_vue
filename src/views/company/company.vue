@@ -1,6 +1,5 @@
 <template>
   <div class="company_container">
-
   </div>
 </template>
 
@@ -8,9 +7,11 @@
   export default {
     name: 'company',
     data() {
-      return {}
+      return {
+      }
     },
     mounted() {
+
     },
     methods: {},
     computed: {},
