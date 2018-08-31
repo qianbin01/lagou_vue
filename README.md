@@ -42,6 +42,12 @@
 人工智能:
 + tenserflow
 # 效果演示
+### 首次载入
+![](screenshots/loading.gif)
+### 登录注册
+![](screenshots/login.gif)
+### 首页
+![](screenshots/home.gif)
 
 # 线上地址
 
