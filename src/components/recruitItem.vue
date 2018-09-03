@@ -29,7 +29,7 @@
         <div class="recruit-company-title">{{item.companyShortName}}</div>
         <div class="recruit-company-info">{{item.companyLabelList.join('|')}}</div>
       </div>
-      <div class="recruit-company-close">x</div>
+      <div class="recruit-company-close" @click.stop="showXClose">x</div>
     </div>
   </div>
 </template>
@@ -50,7 +50,14 @@
       },
       emitEvent() {
         this.$emit('clickRecruitItem', this.item);
-      }
+      },
+      showXClose() {
+        this.$messageBox.confirm('确定移除该条信息吗').then(action => {
+          if (action === 'confirm') this.$emit('removeRecruitItem',this.item);
+        }).catch(error => {
+          console.log(error);
+        });
+      },
     },
     computed: {},
     components: {}

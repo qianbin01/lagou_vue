@@ -70,8 +70,9 @@
         </div>
       </div>
       <recruit-item :item="item" v-for="(item,index) in items"
-                    :key="index"
-                    v-if="index<3" @clickRecruitItem="goToRecruit">
+                    :key="index" v-if="index<3"
+                    @removeRecruitItem="removeRecruitItem"
+                    @clickRecruitItem="goToRecruit">
 
       </recruit-item>
     </div>
@@ -159,6 +160,9 @@
       //职位跳转
       goToRecruit() {
         this.$router.push('/baseIndex/recruitDetailList');
+      },
+      removeRecruitItem(item) {
+        this.items.splice(this.items.indexOf(item), 1);
       }
     },
     computed: {},

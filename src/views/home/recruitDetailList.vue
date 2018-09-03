@@ -22,43 +22,34 @@
       <div slot="header" v-show="recruitSearch">
         <div class="recruit-header-other-container" ref="searchItemDiv">
           <div class="recruit-sort-div">
-            <div class="recruit-sort-item" @click="cityShow=!cityShow">
+            <div class="recruit-sort-item" @click="sortClickMethod('city')">
               全杭州<img src="../../assets/img/arrow/arrow-down.png">
             </div>
             <transition name="slide-up-down">
-              <sort-container v-show="cityShow"></sort-container>
+              <sort-container v-show="cityShow" sortType="city"></sort-container>
             </transition>
-            <div class="recruit-sort-item">
+            <div class="recruit-sort-item" @click="sortClickMethod('recruit')">
               职位筛选<img src="../../assets/img/arrow/arrow-down.png">
             </div>
-            <div class="recruit-sort-item">
+            <transition name="slide-up-down">
+              <sort-container v-show="recruitShow" sortType="recruit"></sort-container>
+            </transition>
+            <div class="recruit-sort-item" @click="sortClickMethod('company')">
               公司筛选<img src="../../assets/img/arrow/arrow-down.png">
             </div>
+            <transition name="slide-up-down">
+              <sort-container v-show="companyShow" sortType="company"></sort-container>
+            </transition>
           </div>
           <div class="recruit-sort-tags">
             <div class="checked_tag">11111</div>
-            <div>11111</div>
-            <div>11111</div>
-            <div>11111</div>
-            <div>11111</div>
-            <div>11111</div>
-            <div>11111</div>
-            <div>11111</div>
-            <div>11111</div>
-            <div>11111</div>
-            <div>11111</div>
-            <div>11111</div>
-            <div>11111</div>
-            <div>11111</div>
-            <div>11111</div>
-            <div>11111</div>
-
+            <div v-for="tag in localTags">{{tag}}</div>
           </div>
         </div>
       </div>
       <div slot="item-container" class="item-container">
         <recruit-item :item="item" v-for="(item,index) in items"
-                      :key="index">
+                      :key="index" @removeRecruitItem="removeRecruitItem">
         </recruit-item>
       </div>
     </recruit-list>
@@ -97,13 +88,17 @@
         sortFlag: false,
         timeFlag: false,
         cityShow: false,
+        recruitShow: false,
+        companyShow: false,
         items: [],
+        localTags: [],
       }
     },
     mounted() {
       this.BaseApi.recruit.getRecruit(res => {
         this.items = res.data.dataList;
       });
+      this.localTags = this.$config.TAGS;
     },
     beforeDestroy() {
       this.$store.commit('switchRecruitSearchFalse');
@@ -130,6 +125,28 @@
         setTimeout(function () {
           that.timeFlag = false
         }, 1000);
+      },
+      removeRecruitItem(item) {
+        this.items.splice(this.items.indexOf(item), 1);
+      },
+      sortClickMethod(item) {
+        switch (item) {
+          case 'city':
+            this.cityShow = !this.cityShow;
+            this.recruitShow = false;
+            this.companyShow = false;
+            break;
+          case 'recruit':
+            this.cityShow = false;
+            this.recruitShow = !this.recruitShow;
+            this.companyShow = false;
+            break;
+          case 'company':
+            this.cityShow = false;
+            this.recruitShow = false;
+            this.companyShow = !this.companyShow;
+            break
+        }
       }
     },
     computed: {
@@ -202,7 +219,8 @@
       }
       .recruit-sort-tags {
         display: flex;
-        padding: 0.3rem 0.8rem;
+        width: 86%;
+        margin: 0.3rem auto;
         overflow-x: auto;
         &::-webkit-scrollbar {
           display: none;
@@ -213,6 +231,8 @@
           color: #aaaaaa;
           font-size: 0.3rem;
           padding: 0.1rem;
+          text-align: center;
+          white-space: nowrap;
         }
         .checked_tag {
           background: $themeColor;
@@ -273,6 +293,7 @@
   .slide-up-down-enter-active, .slide-up-down-leave-active {
     transition: all 0.3s ease;
   }
+
   .slide-up-down-enter {
     transform: translateY(-60px);
     opacity: 0;

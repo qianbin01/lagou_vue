@@ -1,7 +1,7 @@
 <template>
   <div class="searchBar-container">
     <div class="fake-search" v-show="!getDetail" @click="searchDetail(true)">
-      <img src="../assets/img/search/search.png">阿里巴巴
+      <img src="../assets/img/search/search.png">{{searchValue}}
     </div>
     <div class="detail-search" v-show="getDetail">
       <div class="header-line">
@@ -13,7 +13,7 @@
         <transition name="right-come">
           <div class="search-input-div" v-show="getDetail">
             <img src="../assets/img/search/search.png">
-            <input placeholder="阿里巴巴" title="输入框" v-model="inputValue">
+            <input placeholder="阿里巴巴" title="输入框" v-model="inputValue" @keyup.enter.trim="searchItem(inputValue)">
           </div>
         </transition>
         <transition name="right-come">
@@ -60,6 +60,7 @@
 </template>
 
 <script>
+  import {mapMutations, mapState} from 'vuex'
 
   export default {
     name: 'searchBar',
@@ -74,6 +75,7 @@
       }
     },
     mounted() {
+      this.inputValue = this.searchValue;
     },
     methods: {
       showLocation() {
@@ -92,6 +94,8 @@
         this.inputValue = item;
         this.commonUtils.setStore('historyList', histories);
         this.historyList = histories;
+        this.$store.commit('setSearchValue', this.inputValue);
+        this.$router.push('/baseIndex/recruitDetailList')
       },
       emptyHistory() {
         this.$messageBox({
@@ -109,7 +113,14 @@
 
       }
     },
-    computed: {},
+    computed: {
+      ...mapState([
+        'searchValue'
+      ]),
+      ...mapMutations([
+        'setSearchValue'
+      ]),
+    },
     components: {}
   }
 </script>

@@ -1,9 +1,8 @@
 <template>
   <div class="index-container">
-    <keep-alive v-if="$route.name!=='recruitDetailList'">
+    <keep-alive exclude="recruitDetailList">
       <router-view></router-view>
     </keep-alive>
-    <router-view v-else></router-view>
     <bottom></bottom>
   </div>
 </template>

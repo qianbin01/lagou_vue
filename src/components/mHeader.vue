@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import {mapMutations} from 'Vuex'
+  import {mapMutations, mapState} from 'Vuex'
 
   export default {
     name: 'mHeader',
@@ -45,16 +45,21 @@
       }
     },
     mounted() {
+      this.inputValue = this.searchValue;
       this.$refs.mHeader.style.height = this.height;
     },
     methods: {
       goToSearchDetail() {
         this.$store.commit('switchRecruitSearchTrue');
+        this.$store.commit('setSearchValue', this.inputValue);
       }
     },
     computed: {
+      ...mapState([
+        'searchValue'
+      ]),
       ...mapMutations(
-        ['switchRecruitSearchTrue', 'switchRecruitSearchFalse']
+        ['switchRecruitSearchTrue', 'switchRecruitSearchFalse', 'setSearchValue']
       ),
     },
     components: {}
