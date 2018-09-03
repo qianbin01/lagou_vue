@@ -1,6 +1,6 @@
 <template>
   <!--单项职位-->
-  <div class="recruit-item" @click="emitEvent">
+  <div class="recruit-item" @click="emitEvent" v-if="itemType!=='company'">
     <div class="recruit-detail">
       <div class="recruit-detail-left">
         <div class="recruit-title">{{item.positionName}}</div>
@@ -32,14 +32,39 @@
       <div class="recruit-company-close" @click.stop="showXClose">x</div>
     </div>
   </div>
+  <div class="company-item" v-else>
+    <div class="company-logo">
+      <img :src="item.companyLogo">
+    </div>
+    <div class="company-middle-div">
+      <div class="company-short-name">
+        {{item.companyShortName}}
+      </div>
+      <div class="company-long-name">
+        {{item.companyFullName}}
+      </div>
+      <div class="company-bottom-div">
+        {{item.positionNum}}个在招聘职位 | {{item.city}}
+      </div>
+    </div>
+    <div class="company-like">
+      <img src="../assets/img/like/like_yes.png" v-show="likeFlag" @click="likeIt(false)">
+      <img src="../assets/img/like/like.png" v-show="!likeFlag" @click="likeIt(true)">
+      <div class="like-text">
+        加关注
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
   export default {
     name: 'recruitItem',
-    props: ['item'],
+    props: ['item', 'itemType'],
     data() {
-      return {}
+      return {
+        likeFlag: false,
+      }
     },
     mounted() {
     },
@@ -53,11 +78,15 @@
       },
       showXClose() {
         this.$messageBox.confirm('确定移除该条信息吗').then(action => {
-          if (action === 'confirm') this.$emit('removeRecruitItem',this.item);
+          if (action === 'confirm') this.$emit('removeRecruitItem', this.item);
         }).catch(error => {
           console.log(error);
         });
       },
+      likeIt(flag) {
+        this.likeFlag = flag;
+        if (this.likeFlag) this.$toast('关注成功,有合适的职位会通知你');
+      }
     },
     computed: {},
     components: {}
@@ -129,6 +158,42 @@
         padding: 0;
         background: #dedede;
         color: #666666;
+      }
+    }
+  }
+
+  .company-item {
+    display: flex;
+    background: white;
+    border-bottom: #dedede solid 1px;
+    padding: 0.5rem;
+    justify-content: space-around;
+    align-items: center;
+    .company-logo {
+      width: 15%;
+      img {
+        width: 100%;
+      }
+    }
+    .company-middle-div {
+      width: 60%;
+      margin-left: 1rem;
+      .company-short-name {
+        font-size: 0.35rem;
+      }
+      .company-long-name {
+        color: #666666;
+      }
+      .company-bottom-div {
+        color: #aaaaaa;
+      }
+    }
+    .company-like {
+      width: 20%;
+      font-size: 0.24rem;
+      img {
+        height: 0.8rem;
+        width: 0.8rem;
       }
     }
   }

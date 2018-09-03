@@ -1,9 +1,7 @@
 import http from './index'
 //公司类api
-const getCompany = () => {
-  http.get('/api/company/list', res => {
-    console.log(res.data);
-  });
+const getCompany = (res) => {
+  http.get('/api/company/list',res);
 };
 
 export default {
