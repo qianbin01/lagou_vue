@@ -81,7 +81,22 @@
       </div>
     </div>
     <div class="company_type_div" v-if="sortType==='company'">
-      456
+      <div class="msg_info">
+        融资阶段
+      </div>
+      <div class="msg_tags_container">
+        <div class="msg_tag" v-for="tag in 	financing">
+          {{tag}}
+        </div>
+      </div>
+      <div class="msg_info">
+        行业领域
+      </div>
+      <div class="msg_tags_container">
+        <div class="msg_tag" v-for="tag in industry">
+          {{tag}}
+        </div>
+      </div>
     </div>
     <div class="submit_class">
       确定
@@ -100,7 +115,10 @@
         leftText: '',
         rightText: '',
         experience: ['应届毕业生', '3年及以下', '3-5年', '5-10年', '10年以上', '经验不限'],
-        education: ['大专', '本科', '硕士', '博士', '不要求']
+        education: ['大专', '本科', '硕士', '博士', '不要求'],
+        financing: ['未融资', '天使轮', 'A轮', 'B轮', 'C轮', 'D轮及以上', '上市公司', '不需要融资'],
+        industry: ['不限', '移动互联网', '电子商务', '社交网络', '企业服务', '教育', '游戏', '人工智能',
+          '旅游', '金融', '医疗健康', '生活服务', '信息安全', '数据服务', '广告营销', '文化娱乐', '硬件', '分类信息', '招聘', '其他']
       }
     },
     mounted() {
