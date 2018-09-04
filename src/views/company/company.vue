@@ -1,7 +1,7 @@
 <template>
   <div class="recruitList-container">
     <m-header></m-header>
-    <recruit-list style="margin-top: 1.2rem;overflow: hidden">
+    <recruit-list  style="overflow: hidden">
       <div slot="header">
         <div class="recruit-header-other-container" ref="searchItemDiv">
           <div class="recruit-sort-div">
@@ -75,8 +75,8 @@
     mounted() {
       this.BaseApi.company.getCompany(res => {
         this.items = res.data.dataList;
-        console.log(this.items);
       });
+      $('.recruitList-scroll-container').css({'marginTop':$('.header-container').innerHeight()});
     },
     methods: {
       toggleSort() {

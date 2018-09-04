@@ -1,7 +1,7 @@
 <template>
   <div class="recruitList-container">
     <m-header></m-header>
-    <recruit-list style="margin-top: 1.2rem;overflow: hidden">
+    <recruit-list style="overflow: hidden">
       <div slot="header" v-show="!recruitSearch">
         <div class="recruit-header-container">
           <div class="recruit-left-header">
@@ -99,6 +99,7 @@
         this.items = res.data.dataList;
       });
       this.localTags = this.$config.TAGS;
+      $('.recruitList-scroll-container').css({'marginTop':$('.header-container').innerHeight()});
     },
     beforeDestroy() {
       this.$store.commit('switchRecruitSearchFalse');

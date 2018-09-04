@@ -1,5 +1,5 @@
 <template>
-  <div class="recruitList-container">
+  <div class="recruitList-scroll-container">
     <div class="item-list-container">
       <slot name="header">
 
@@ -67,7 +67,7 @@
 </script>
 <style scoped lang="scss">
   @import "../style/mixin";
-  .recruitList-container {
+  .recruitList-scroll-container {
     position: relative;
     .item-list-container {
       background: white;
