@@ -18,7 +18,7 @@
     data() {
       return {
         checkTab: 0,
-        tabs: ['精选', '话题', '关注', '专栏'],
+        tabs: ['精选', '话题', '关注'],
         documentWidth: document.body.clientWidth,
         tabLineWidth: ''
       }

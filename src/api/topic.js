@@ -1,9 +1,7 @@
 import http from './index'
 //公司类api
-const getTopic = () => {
-  http.get('/api/topic/list', res => {
-    console.log(res.data);
-  });
+const getTopic = (res) => {
+  http.get('/api/topic/list', res);
 };
 
 export default {

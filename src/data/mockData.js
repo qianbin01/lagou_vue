@@ -284,58 +284,8 @@ let data = {
   'topic': {
     dataList: [
       {
-        "id": "1232",
-        "logo": "i/image/M00/A8/30/Cgp3O1iuiTCAcRO4AAI12y-dAio968.JPG",
-        "title": "互联网",
-        "content": "",
-        "questionCount": "33",
-        "answerCount": "60",
-        "attentionCount": "10K+",
-        "hasConcerned": false
-      },
-      {
-        "id": "340",
-        "logo": "i/image/M00/54/EA/Cgp3O1fFTeSACFi8AAEnpHYcud8082.PNG",
-        "title": "销售",
-        "content": "销售是非常重要的职业，大多数的企业盈利都需要依靠销售的能力，来，在这里我们聊聊如何能成为一个伟大的销售吧。",
-        "questionCount": "32",
-        "answerCount": "238",
-        "attentionCount": "10K+",
-        "hasConcerned": false
-      },
-      {
-        "id": "339",
-        "logo": "i/image/M00/54/EA/CgqKkVfFTh2Ab5x_AAEeySohI9Q472.PNG",
-        "title": "市场",
-        "content": "市场部是公司里重要的部门组成，它缩短了公司品牌和用户的距离。来，让我们在这里聊聊市场工作中的事情吧。",
-        "questionCount": "30",
-        "answerCount": "123",
-        "attentionCount": "10K+",
-        "hasConcerned": false
-      },
-      {
-        "id": "333",
-        "logo": "i/image/M00/54/EA/CgqKkVfFTmOAMx_AAACvgxbRkp8900.PNG",
-        "title": "Android开发",
-        "content": "来自google的手机操作系统，受众广泛，所以拥有许多基于Android系统的软件和开发者。在这里我们可以聊聊Android那些事儿。",
-        "questionCount": "29",
-        "answerCount": "398",
-        "attentionCount": "10K+",
-        "hasConcerned": false
-      },
-      {
-        "id": "35689",
-        "logo": "",
-        "title": "离职",
-        "content": "",
-        "questionCount": "28",
-        "answerCount": "520",
-        "attentionCount": "4.1K",
-        "hasConcerned": false
-      },
-      {
         "id": "597",
-        "logo": "i/image/M00/17/17/CgpEMlj2z5eAHDicAADQEqH8Qp8731.PNG",
+        "logo": "http://www.lgstatic.com/i/image/M00/17/17/CgpEMlj2z5eAHDicAADQEqH8Qp8731.PNG",
         "title": "实习",
         "content": "迈向职业的第一步。",
         "questionCount": "27",
@@ -345,7 +295,7 @@ let data = {
       },
       {
         "id": "363",
-        "logo": "i/image/M00/32/3B/Cgp3O1dNjPiAKc3CAAAcQ3kDFXo080.PNG",
+        "logo": "http://www.lgstatic.com/i/image/M00/32/3B/Cgp3O1dNjPiAKc3CAAAcQ3kDFXo080.PNG",
         "title": "拉勾",
         "content": "帮用户找到满意的工作",
         "questionCount": "24",
@@ -355,7 +305,7 @@ let data = {
       },
       {
         "id": "455",
-        "logo": "i/image/M00/79/FC/Cgp3O1g-oKWAeimyAADqt8JSpoA863.PNG",
+        "logo": "http://www.lgstatic.com/i/image/M00/79/FC/Cgp3O1g-oKWAeimyAADqt8JSpoA863.PNG",
         "title": "数据分析",
         "content": "",
         "questionCount": "23",
@@ -365,7 +315,7 @@ let data = {
       },
       {
         "id": "436",
-        "logo": "image1/M00/00/03/CgYXBlTUV_qALGv0AABEuOJDipU378.jpg",
+        "logo": "http://www.lgstatic.com/image1/M00/00/03/CgYXBlTUV_qALGv0AABEuOJDipU378.jpg",
         "title": "腾讯(公司)",
         "content": "连接一切，从连接人才开始！",
         "questionCount": "21",
@@ -375,7 +325,7 @@ let data = {
       },
       {
         "id": "334",
-        "logo": "i/image/M00/54/EA/Cgp3O1fFTnOADNjQAABo2wMGGG8009.PNG",
+        "logo": "http://www.lgstatic.com/i/image/M00/54/EA/Cgp3O1fFTnOADNjQAABo2wMGGG8009.PNG",
         "title": "iOS 开发",
         "content": "指基于苹果 iOS 系统的开发，我们可以在这里讨论与iOS开发相关的问题。",
         "questionCount": "21",
@@ -515,7 +465,7 @@ let data = {
                 "anonymous": false,
                 "userName": "不忘初心",
                 "sex": "MALE",
-                "portrait": "i/image/M00/73/22/CgqKkVgtsMqAV8qRAAF3Mwx6WHI767.jpg",
+                "portrait": "http://www.lgstatic.com/i/image/M00/73/22/CgqKkVgtsMqAV8qRAAF3Mwx6WHI767.jpg",
                 "positionName": "互联网+文化，+旅游，+体育 智能平台运营",
                 "introduce": "创业老兵，复合型（策划师、培训师、媒体人），跨界型创业青年。",
                 "questionNum": 0,
