@@ -254,7 +254,7 @@
       }
     }
     .question-add-div {
-      position: absolute;
+      position: fixed;
       right: 1rem;
       bottom: 2rem;
       background: $themeColor;
