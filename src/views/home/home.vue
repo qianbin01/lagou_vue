@@ -98,6 +98,9 @@
         checkedSpan: 'recommand',
         articleList: [],
         items: [],
+        imageSrc: require('../../assets/img/head/demo_head.png'),
+        imageSrc1: require('../../assets/img/head/boy.png'),
+        imageSrc2: require('../../assets/img/head/girl.png'),
       }
     },
     mounted() {

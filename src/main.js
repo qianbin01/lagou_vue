@@ -9,7 +9,7 @@ import config from './config'
 import BaseApi from './api/BaseApi'
 import commonUtils from './utils/commonUtils'
 import 'swiper/dist/css/swiper.css';
-
+import VueLazyload from 'vue-lazyload'
 require('./style/my-mint.scss');
 
 if (config.MOCK_ENABLE) {
@@ -23,6 +23,7 @@ Vue.prototype.$config = config;//将config挂载在Vue中
 Vue.prototype.$messageBox = MessageBox;//弹窗挂载
 Vue.prototype.$toast = Toast;//Toast挂载
 
+Vue.use(VueLazyload);
 
 new Vue({
   el: '#app',

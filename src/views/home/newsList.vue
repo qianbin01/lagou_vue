@@ -4,7 +4,7 @@
       <img src="../../assets/img/arrow/left.png" @click="$router.go(-1)">
       拉勾头条
     </div>
-    <pull-to-refresh  @loadTop="loadTop" @loadBottom="loadBottom">
+    <pull-to-refresh @loadTop="loadTop" @loadBottom="loadBottom">
       <div class="news-container">
         <div class="news-item"
              @click="seeDetail(item)"
@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="right-container">
-            <img :src="item.cover">
+            <img v-lazy="item.cover" :key="item.cover">
           </div>
         </div>
       </div>

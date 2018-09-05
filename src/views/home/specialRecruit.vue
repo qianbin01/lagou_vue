@@ -21,10 +21,10 @@
           <img :src="bgSrc">
         </div>
       </div>
-      <div class="item-container" slot="item-container">
-        <div v-for="item in dataList">
-          {{item}}
-        </div>
+      <div slot="item-container" class="item-container">
+        <recruit-item :item="item" v-for="(item,index) in items"
+                      :key="index" @removeRecruitItem="removeRecruitItem">
+        </recruit-item>
       </div>
     </recruit-list>
   </div>
@@ -32,6 +32,7 @@
 
 <script>
   import recruitList from '../../components/recruitList'
+  import recruitItem from '../../components/recruitItem'
 
   export default {
     name: 'specialRecruit',
@@ -43,13 +44,13 @@
         leftTwoTitle: '',
         bgStyle: {color: 'black'},
         leftInfo: '',
-        dataList: [],
+        items: [],
       }
     },
     mounted() {
-      for (let i = 0; i < 50; i++) {
-        this.dataList.push(i);
-      }
+      this.BaseApi.recruit.getRecruit(res => {
+        this.items = res.data.dataList;
+      });
       //不同type修改slot相应内容
       switch (this.$route.query.flag) {
         case 'hot':
@@ -78,10 +79,15 @@
           break;
       }
     },
-    methods: {},
+    methods: {
+      removeRecruitItem(item) {
+        this.items.splice(this.items.indexOf(item), 1);
+      },
+    },
     computed: {},
     components: {
-      recruitList
+      recruitList,
+      recruitItem
     }
   }
 </script>

@@ -23,7 +23,7 @@
     </div>
     <div class="recruit-company">
       <div class="recruit-logo">
-        <img :src="item.companyLogo">
+        <img v-lazy="item.companyLogo" :key="item.companyLogo">
       </div>
       <div class="recruit-company-container">
         <div class="recruit-company-title">{{item.companyShortName}}</div>
@@ -34,7 +34,7 @@
   </div>
   <div class="company-item" v-else>
     <div class="company-logo">
-      <img :src="item.companyLogo">
+      <img v-lazyload="item.companyLogo" :key="item.companyLogo">
     </div>
     <div class="company-middle-div">
       <div class="company-short-name">
