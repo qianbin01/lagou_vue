@@ -34,7 +34,7 @@
   </div>
   <div class="company-item" v-else>
     <div class="company-logo">
-      <img v-lazyload="item.companyLogo" :key="item.companyLogo">
+      <img v-lazy="item.companyLogo" :key="item.companyLogo">
     </div>
     <div class="company-middle-div">
       <div class="company-short-name">
