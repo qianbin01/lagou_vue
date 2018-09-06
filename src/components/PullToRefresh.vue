@@ -30,7 +30,8 @@
         moveDistance: 0,
         tipText: '下拉刷新',
         bottomFlag: false,
-        el: null
+        el: null,
+        topHeight: '',
       }
     },
     methods: {
@@ -41,9 +42,7 @@
       },
       removeTouchEvent() {
         this.el.removeEventListener('touchstart', this._touchStart, false);
-
         this.el.removeEventListener('touchmove', this._touchMove, false);
-
         this.el.removeEventListener('touchend', this._touchEnd, false);
       },
       _touchStart(e) {
@@ -67,14 +66,11 @@
           }
         }
       },
-      _touchEnd(e) {
+      _touchEnd() {
         this.$store.commit('bottomShowTrue');
         if (this.bottomFlag) {
           this.$emit('loadBottom');
         }
-        let touch = e.changedTouches[0];
-        this.endX = touch.clientX;
-        this.endY = touch.clientY;
         let that = this;
         if (this.moveDistance > 50) {
           this.tipText = '数据加载中...';

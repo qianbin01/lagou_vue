@@ -2,7 +2,6 @@
   <div class="recruitList-scroll-container">
     <div class="item-list-container">
       <slot name="header">
-
       </slot>
       <pull-to-refresh :pullBox="pullBox" @loadTop="loadTop" @loadBottom="loadBottom">
         <slot name="item-img"></slot>
@@ -51,6 +50,7 @@
       loadTop(resolve) {
         console.log('下拉刷新');
         setTimeout(function () {
+
           resolve();
         }, 1000);
       },

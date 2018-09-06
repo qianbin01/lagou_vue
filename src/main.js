@@ -10,8 +10,8 @@ import BaseApi from './api/BaseApi'
 import commonUtils from './utils/commonUtils'
 import 'swiper/dist/css/swiper.css';
 import VueLazyload from 'vue-lazyload'
-require('./style/my-mint.scss');
 
+require('./style/my-mint.scss');
 if (config.MOCK_ENABLE) {
   require('./data');//加载mock
 }
