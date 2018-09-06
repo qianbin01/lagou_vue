@@ -31,7 +31,6 @@
         tipText: '下拉刷新',
         bottomFlag: false,
         el: null,
-        topHeight: '',
       }
     },
     methods: {
