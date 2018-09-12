@@ -8,15 +8,13 @@
 + ~~页面首次加载面~~ √
 + ~~城市选择~~ √
 + ~~文章阅读~~ √
-
-+ ip定位
-+ 搜索职位
-+ 搜索公司
++ ~~搜索职位~~ √
++ ~~搜索公司~~ √
++ ~~图片懒加载~~ √
 + 话题评论
 + 简历填写
 + 简历生成
 + 简历模版
-+ 图片懒加载
 + 收藏
 + 职位分析
 + 职位推荐
@@ -55,8 +53,6 @@
 代理api地址:https://github.com/qianbin01/lagou_node
 
 api地址:https://github.com/qianbin01/lagou_python_api
-
-人工智能地址:
 
 爬虫地址:https://github.com/qianbin01/lagou_spider
 # 项目配置
