@@ -82,7 +82,8 @@ ubuntu 16.04
 
 大佬们赞助一波续费服务器吧
 
-<img src="http://oh343spqg.bkt.clouddn.com/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg" width="150" hegiht="50" />
+<img src="http://oh343spqg.bkt.clouddn.com/zhifubao.jpg" width="150" hegiht="50" />
+
 
 <img src="http://oh343spqg.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1.jpg" width="150" hegiht="50" />
 
