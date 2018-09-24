@@ -7,23 +7,23 @@
       <div class="introduce-div">
         123654123654123654123654123654123654123654123654123654123654
       </div>
-      <div class="edit-div">
+      <div class="edit-div" @click="$router.push('/mine/editResume')">
         <img src="../../assets/img/mine/edit.png"> 编辑
       </div>
       <div class="items-div">
-        <div class="item-one-div">
+        <div class="item-one-div" @click="$router.push('/mine/resume')">
           <img src="../../assets/img/mine/resume.png">
           <div>简历</div>
         </div>
-        <div class="item-one-div">
+        <div class="item-one-div" @click="$router.push('/mine/send')">
           <img src="../../assets/img/mine/want.png">
           <div>我的投递</div>
         </div>
-        <div class="item-one-div">
+        <div class="item-one-div" @click="$router.push('/mine/like')">
           <img src="../../assets/img/mine/like_company.png">
           <div>关注公司</div>
         </div>
-        <div class="item-one-div">
+        <div class="item-one-div" @click="$router.push('/mine/cc')">
           <img src="../../assets/img/mine/cc.png">
           <div>拉勾cc</div>
         </div>
@@ -48,7 +48,7 @@
       <div class="one-line-div border-div">
         <div>
           <img src="../../assets/img/mine/collect.png">
-          求职意向
+          收藏
         </div>
         <div>
           <img class="right-img" src="../../assets/img/arrow/arrow-right.png">
@@ -57,7 +57,7 @@
       <div class="one-line-div border-div">
         <div>
           <img src="../../assets/img/mine/feedback.png">
-          求职意向
+          投递
         </div>
         <div>
           <img class="right-img" src="../../assets/img/arrow/arrow-right.png">
@@ -66,7 +66,7 @@
       <div class="one-line-div border-div">
         <div>
           <img src="../../assets/img/mine/setting.png">
-          求职意向
+          设置
         </div>
         <div>
           <img class="right-img" src="../../assets/img/arrow/arrow-right.png">
@@ -77,7 +77,7 @@
       <div class="one-line-div">
         <div>
           <img src="../../assets/img/mine/secret.png">
-          求职意向
+          隐私设置
         </div>
         <div>
           <span>设置隐私保护</span>

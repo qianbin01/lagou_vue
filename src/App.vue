@@ -20,7 +20,9 @@
         if (from.meta && from.meta.direction === 'slide-left') {
           this.transition = 'slide-right';
           if (to.meta.direction === 'slide-left') {
-            this.transition = to.meta.direction
+            if (to.name !== 'like' && from.name !== 'likeCompany') {
+              this.transition = to.meta.direction
+            }
           }
         } else {
           this.transition = to.meta.direction || 'fade';
@@ -49,19 +51,24 @@
     margin: 0;
     padding: 0;
   }
-  a{
-    text-decoration:none;
+
+  a {
+    text-decoration: none;
     color: #222222;
   }
+
   a:link {
     text-decoration: none;
   }
+
   a:visited {
     text-decoration: none;
   }
+
   a:hover {
     text-decoration: underline;
   }
+
   #app {
     width: 100%;
     height: 100%;

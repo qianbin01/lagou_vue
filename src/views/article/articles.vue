@@ -2,6 +2,7 @@
   <div class="article_container">
     <m-header :tabShow="true"
               :borderShow="true"
+              :tabs="tabs"
               @changeTab="changeTab">
       <div class="left-search" slot="left">
         <img src="../../assets/img/search/search.png">
@@ -79,6 +80,7 @@
     name: 'articles',
     data() {
       return {
+        tabs: ['精选', '话题', '关注'],
         tabClick: 1,
         likeList: [],
         topicList: [],

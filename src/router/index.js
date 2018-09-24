@@ -15,7 +15,14 @@ const recruitDetailList = r => require.ensure([], () => r(require('../views/home
 
 const company = r => require.ensure([], () => r(require('../views/company/company')), 'company');
 const articles = r => require.ensure([], () => r(require('../views/article/articles')), 'articles');
+
 const mine = r => require.ensure([], () => r(require('../views/mine/mine')), 'mine');
+const resume = r => require.ensure([], () => r(require('../views/mine/resume')), 'resume');
+const editResume = r => require.ensure([], () => r(require('../views/mine/editResume')), 'editResume');
+const send = r => require.ensure([], () => r(require('../views/mine/send')), 'send');
+const like = r => require.ensure([], () => r(require('../views/mine/like')), 'like');
+const likeCompany = r => require.ensure([], () => r(require('../views/mine/likeCompany')), 'likeCompany');
+const cc = r => require.ensure([], () => r(require('../views/mine/cc')), 'cc');
 
 
 Vue.use(Router);
@@ -93,6 +100,54 @@ export default new Router({
       path: '/specialRecruit',
       name: 'specialRecruit',
       component: specialRecruit,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/mine/resume',
+      name: 'resume',
+      component: resume,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/mine/editResume',
+      name: 'editResume',
+      component: editResume,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/mine/send',
+      name: 'send',
+      component: send,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/mine/like',
+      name: 'like',
+      component: like,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/mine/likeCompany',
+      name: 'likeCompany',
+      component: likeCompany,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/mine/cc',
+      name: 'cc',
+      component: cc,
       meta: {
         direction: 'slide-left'
       }

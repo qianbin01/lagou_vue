@@ -8,17 +8,17 @@
            v-for="(tab,index) in tabs">{{tab}}
       </div>
     </div>
-    <div   class="line-container" ref="tabLine"></div>
+    <div class="line-container" ref="tabLine"></div>
   </div>
 </template>
 
 <script>
   export default {
     name: 'tabSwitch',
+    props: ['tabs'],
     data() {
       return {
         checkTab: 0,
-        tabs: ['精选', '话题', '关注'],
         documentWidth: document.body.clientWidth,
         tabLineWidth: ''
       }

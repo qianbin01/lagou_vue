@@ -23,7 +23,7 @@
       </slot>
     </div>
     <div class="tab-switch" v-if="tabShow">
-      <tab-switch @changeTab="changeTab"></tab-switch>
+      <tab-switch @changeTab="changeTab" :tabs="tabs"></tab-switch>
     </div>
   </div>
 </template>
@@ -37,6 +37,9 @@
     props: {
       tabShow: {
         default: false
+      },
+      tabs: {
+        default: Array
       },
       borderShow: {
         default: false
@@ -84,7 +87,7 @@
     width: 100%;
     position: fixed;
     z-index: 1000;
-    padding: 0.2rem 0 0.1rem 0;
+    padding: 0.2rem 0 0.2rem 0;
     background: white;
     .line-one {
       width: 100%;
