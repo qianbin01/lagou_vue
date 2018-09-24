@@ -14,34 +14,6 @@
           </div>
           <input title="input" :value="name" ref="popInput">
         </div>
-        <div class="date_container" v-if="popUpType==='date'">
-          <div class="choose_top_line">
-          </div>
-          <div class="choose_bottom_line">
-          </div>
-          <div class="date_detail_container">
-            <div class="year_container">
-              <div style="height: 1rem">2017</div>
-              <div style="height: 1rem">2017</div>
-              <div style="height: 1rem">2017</div>
-              <div style="height: 1rem">2017</div>
-              <div style="height: 1rem">2017</div>
-              <div style="height: 1rem">2017</div>
-              <div style="height: 1rem">2017</div>
-              <div style="height: 1rem">2017</div>
-              <div style="height: 1rem">2017</div>
-              <div style="height: 1rem">2017</div>
-              <div style="height: 1rem">2017</div>
-              <div style="height: 1rem">2017</div>
-              <div style="height: 1rem">2017</div>
-
-
-            </div>
-            <div class="month_container">
-              02
-            </div>
-          </div>
-        </div>
         <div class="popUp_bottom">
           <div class="popUp_cancel" @click="hidePopUp">
             取消
@@ -123,46 +95,21 @@
       .date_container {
         background: white;
         margin-bottom: .3rem;
-        height: 6rem;
+        height: 2rem;
         position: relative;
         .choose_top_line {
           position: absolute;
-          top: 2.6rem;
+          top: .5rem;
           width: 100%;
           height: 1px;
           background: #dedede;
         }
         .choose_bottom_line {
           position: absolute;
-          top: 3.6rem;
+          top: 1.5rem;
           width: 100%;
           height: 1px;
           background: #dedede;
-        }
-        .date_detail_container {
-          padding-top: 1rem;
-          display: flex;
-          justify-content: space-evenly;
-          text-align: center;
-          height: 80%;
-          .year_container {
-            width: 40%;
-            height: 100%;
-            overflow: auto;
-            font-size: .45rem;
-            &::-webkit-scrollbar{
-              display: none;
-            }
-          }
-          .month_container {
-            width: 40%;
-            height: 100%;
-            font-size: .45rem;
-            overflow: auto;
-            &::-webkit-scrollbar{
-              display: none;
-            }
-          }
         }
       }
       .radio_container {

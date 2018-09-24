@@ -12,7 +12,9 @@ import 'swiper/dist/css/swiper.css';
 import VueLazyload from 'vue-lazyload'
 
 require('./style/my-mint.scss');
-import {Switch} from 'mint-ui';
+import {Switch, DatetimePicker} from 'mint-ui';
+
+Vue.component(DatetimePicker.name, DatetimePicker);
 Vue.component(Switch.name, Switch);
 if (config.MOCK_ENABLE) {
   require('./data');//加载mock

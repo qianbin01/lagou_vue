@@ -156,12 +156,24 @@
                :listType="listType"
                :radioList="radioList"
                @hidePopUp="hidePopUp"></my-pop-up>
+    <mt-datetime-picker
+      v-model="pickerModel"
+      type="date"
+      ref="picker"
+      :endDate="endDate"
+      :startDate="startDate"
+      year-format="{value} 年"
+      month-format="{value} 月"
+      date-format="{value} 日"
+      @confirm="handleConfirm">
+    </mt-datetime-picker>
   </div>
 </template>
 
 <script>
   import mHeader from '../../components/mHeader'
   import myPopUp from '../../components/myPopUp'
+  import moment from 'moment'
 
   export default {
     name: "editResume",
@@ -221,6 +233,10 @@
           {label: '项目结束时间', name: '2018.09', type: 'date', bottomDivide: true},
           {label: '项目链接', name: 'https://github.com/qianbin01/lagou_vue', bottomDivide: true},
         ],
+
+        pickerModel: '',
+        startDate: new Date('1980-1-1'),
+        endDate: new Date(),
         popupModel: false,
         popUpType: 'text',
         listType: '',
@@ -270,11 +286,19 @@
         this.listType = listType;
         this.radioList = item.radio;
         this.listIndex = index;
-        this.popupModel = true;
+        if (item.type !== 'date') {
+          this.popupModel = true;
+        } else {
+          this.pickerModel = new Date(item.name);
+          this.$refs.picker.open();
+        }
       },
       hidePopUp(value, index, list) {
         if (value) list[index].name = value;
         this.popupModel = false;
+      },
+      handleConfirm(date) {
+        this.listType[this.listIndex].name = moment(date).format('YYYY.MM.DD');
       },
       uploadImg() {
         console.log(123);

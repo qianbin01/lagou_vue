@@ -20,6 +20,7 @@
     "mint-ui": "^2.2.13",
     "mock": "^0.1.1",
     "mockjs": "^1.0.1-beta3",
+    "moment": "^2.22.2",
     "node-sass": "^4.9.2",
     "sass-loader": "^7.0.3",
     "swiper": "^4.3.5",
