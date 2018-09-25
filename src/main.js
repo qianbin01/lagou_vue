@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import store from './store'
-import Mint, {MessageBox, Toast} from 'mint-ui';
+import Mint, {DatetimePicker, MessageBox, Switch, Toast} from 'mint-ui';
 import App from './App'
 import router from './router'
 import config from './config'
@@ -8,7 +8,7 @@ import BaseApi from './api/BaseApi'
 import commonUtils from './utils/commonUtils'
 import 'swiper/dist/css/swiper.css';
 import VueLazyload from 'vue-lazyload'
-import {Switch, DatetimePicker} from 'mint-ui';
+
 Vue.component(DatetimePicker.name, DatetimePicker);
 Vue.component(Switch.name, Switch);
 if (config.MOCK_ENABLE) {

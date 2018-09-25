@@ -34,7 +34,7 @@
     </div>
     <div class="middle_container">
       <div class="one-line-div" @click="$router.push('/mine/wantAsk')">
-        <div>
+        <div style="display: flex;align-items: center">
           <img src="../../assets/img/mine/wantwhat.png">
           求职意向
         </div>
@@ -46,7 +46,7 @@
     </div>
     <div class="middle_container">
       <div class="one-line-div border-div" @click="$router.push('/mine/likeRecruit')">
-        <div>
+        <div style="display: flex;align-items: center">
           <img src="../../assets/img/mine/collect.png">
           收藏
         </div>
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="one-line-div border-div" @click="$router.push('/mine/send')">
-        <div>
+        <div style="display: flex;align-items: center">
           <img src="../../assets/img/mine/feedback.png">
           投递
         </div>
@@ -64,7 +64,7 @@
         </div>
       </div>
       <div class="one-line-div border-div" @click="$router.push('/mine/setting')">
-        <div>
+        <div style="display: flex;align-items: center">
           <img src="../../assets/img/mine/setting.png">
           设置
         </div>
@@ -75,7 +75,7 @@
     </div>
     <div class="middle_container" @click="$router.push('/mine/secretSetting')">
       <div class="one-line-div">
-        <div>
+        <div style="display: flex;align-items: center">
           <img src="../../assets/img/mine/secret.png">
           隐私设置
         </div>
@@ -174,8 +174,12 @@
       display: flex;
       justify-content: space-between;
       img {
+        vertical-align: center;
         width: 0.8rem;
         margin-right: 0.2rem;
+      }
+      span {
+        vertical-align: center;
       }
       .right-img {
         width: 0.4rem;

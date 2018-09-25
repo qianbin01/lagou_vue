@@ -28,7 +28,6 @@ module.exports = {
     Mock: 'Mock',
     jsPDF: 'jsPDF',
     jquery: "jQuery",
-    bootstrap: 'bootstrap',
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],

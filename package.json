@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "^4.1.1",
     "element-ui": "^2.4.4",
     "html2canvas": "^1.0.0-alpha.12",
     "jquery": "^3.3.1",
