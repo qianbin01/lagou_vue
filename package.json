@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "analyz": "set NODE_ENV=production && set npm_config_report=true && npm run build"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -15,11 +16,10 @@
     "element-ui": "^2.4.4",
     "html2canvas": "^1.0.0-alpha.12",
     "jquery": "^3.3.1",
-    "jspdf": "^1.4.1",
     "lodash": "latest",
     "mint-ui": "^2.2.13",
-    "mock": "^0.1.1",
-    "mockjs": "^1.0.1-beta3",
+    "jsPDF": "^1.4.1",
+    "Mock": "^1.0.1-beta3",
     "node-sass": "^4.9.2",
     "sass-loader": "^7.0.3",
     "swiper": "^4.3.5",

@@ -1,6 +1,5 @@
 import html2canvas from "html2canvas";
-import jsPdf from 'jspdf'
-
+import jsPDF from 'jsPDF'
 // 存储localStorage
 const setStore = (name, content) => {
   if (!name) return;
@@ -51,8 +50,7 @@ export const generateResume = (el, name) => {
     let imgWidth = 595.28;
     let imgHeight = 592.28 / contentWidth * contentHeight;
     let pageData = canvas.toDataURL('image/jpeg', 1.0);
-    //注①
-    let pdf = new jsPdf('', 'pt', 'a4');
+    let pdf = new jsPDF('', 'pt', 'a4');
     //有两个高度需要区分，一个是html页面的实际高度，和生成pdf的页面高度(841.89)
     //当内容未超过pdf一页显示的范围，无需分页
     if (leftHeight < pageHeight) {

@@ -25,6 +25,8 @@ module.exports = {
     vue: 'Vue',
     vuex: 'Vuex',
     'mint-ui': 'MINT',
+    Mock: 'Mock',
+    jsPDF: 'jsPDF',
     jquery: "jQuery",
     bootstrap: 'bootstrap',
   },
