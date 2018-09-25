@@ -297,7 +297,7 @@
         this.popupModel = false;
       },
       handleConfirm(date) {
-        this.listType[this.listIndex].name = moment(date).format('YYYY.MM.DD');
+        this.listType[this.listIndex].name = `${date.getFullYear()}.${date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1}.${date.getDate() < 10 ? '0' + date.getDate() : date.getDate()}`;
       },
       uploadImg() {
         console.log(123);
