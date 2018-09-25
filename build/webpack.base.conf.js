@@ -26,6 +26,7 @@ module.exports = {
     vuex: 'Vuex',
     'mint-ui': 'MINT',
     jquery: "jQuery",
+    moment:true,
     bootstrap: 'bootstrap',
   },
   resolve: {

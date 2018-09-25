@@ -173,7 +173,6 @@
 <script>
   import mHeader from '../../components/mHeader'
   import myPopUp from '../../components/myPopUp'
-  import moment from 'moment'
 
   export default {
     name: "editResume",
