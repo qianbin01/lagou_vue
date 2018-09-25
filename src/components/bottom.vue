@@ -58,6 +58,13 @@
     },
     mounted() {
     },
+    watch: {
+      '$route'(to) {
+        if (to.path.includes('baseIndex')) {
+          this.clickTab = this.$route.path.split('/').pop();
+        }
+      }
+    },
     methods: {
       //切换底部按钮点击事件
       changeTab(name, url) {

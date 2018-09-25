@@ -4,7 +4,7 @@
               :borderShow="true"
               :tabs="tabs"
               @changeTab="changeTab">
-      <div class="left-search" slot="left">
+      <div class="left-search" slot="left" @click="$toast('这里搜索就不做了')">
         <img src="../../assets/img/search/search.png">
       </div>
       <div class="middle-text" slot="middle">

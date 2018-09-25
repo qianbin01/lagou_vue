@@ -23,6 +23,10 @@ const send = r => require.ensure([], () => r(require('../views/mine/send')), 'se
 const like = r => require.ensure([], () => r(require('../views/mine/like')), 'like');
 const likeCompany = r => require.ensure([], () => r(require('../views/mine/likeCompany')), 'likeCompany');
 const cc = r => require.ensure([], () => r(require('../views/mine/cc')), 'cc');
+const likeRecruit = r => require.ensure([], () => r(require('../views/mine/likeRecruit')), 'likeRecruit');
+const secretSetting = r => require.ensure([], () => r(require('../views/mine/secretSetting')), 'secretSetting');
+const setting = r => require.ensure([], () => r(require('../views/mine/setting')), 'setting');
+const wantAsk = r => require.ensure([], () => r(require('../views/mine/wantAsk')), 'wantAsk');
 
 
 Vue.use(Router);
@@ -148,6 +152,38 @@ export default new Router({
       path: '/mine/cc',
       name: 'cc',
       component: cc,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/mine/likeRecruit',
+      name: 'likeRecruit',
+      component: likeRecruit,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/mine/secretSetting',
+      name: 'secretSetting',
+      component: secretSetting,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/mine/setting',
+      name: 'setting',
+      component: setting,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/mine/wantAsk',
+      name: 'wantAsk',
+      component: wantAsk,
       meta: {
         direction: 'slide-left'
       }

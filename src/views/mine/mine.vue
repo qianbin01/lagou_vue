@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="middle_container">
-      <div class="one-line-div">
+      <div class="one-line-div" @click="$router.push('/mine/wantAsk')">
         <div>
           <img src="../../assets/img/mine/wantwhat.png">
           求职意向
@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="middle_container">
-      <div class="one-line-div border-div">
+      <div class="one-line-div border-div" @click="$router.push('/mine/likeRecruit')">
         <div>
           <img src="../../assets/img/mine/collect.png">
           收藏
@@ -54,7 +54,7 @@
           <img class="right-img" src="../../assets/img/arrow/arrow-right.png">
         </div>
       </div>
-      <div class="one-line-div border-div">
+      <div class="one-line-div border-div" @click="$router.push('/mine/send')">
         <div>
           <img src="../../assets/img/mine/feedback.png">
           投递
@@ -63,7 +63,7 @@
           <img class="right-img" src="../../assets/img/arrow/arrow-right.png">
         </div>
       </div>
-      <div class="one-line-div border-div">
+      <div class="one-line-div border-div" @click="$router.push('/mine/setting')">
         <div>
           <img src="../../assets/img/mine/setting.png">
           设置
@@ -73,7 +73,7 @@
         </div>
       </div>
     </div>
-    <div class="middle_container">
+    <div class="middle_container" @click="$router.push('/mine/secretSetting')">
       <div class="one-line-div">
         <div>
           <img src="../../assets/img/mine/secret.png">
