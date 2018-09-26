@@ -97,10 +97,11 @@
 
   .recruit-item {
     background: white;
-    width: 100%;
+    width: 90%;
     padding: 0.3rem 0.5rem;
     margin-bottom: 0.2rem;
     .recruit-detail {
+      width: 100%;
       display: flex;
       .recruit-detail-left {
         width: 80%;
@@ -134,6 +135,7 @@
     }
     .recruit-company {
       display: flex;
+      width: 100%;
       align-items: center;
       .recruit-logo {
         width: 15%;

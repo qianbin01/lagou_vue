@@ -19,6 +19,7 @@ const articles = r => require.ensure([], () => r(require('../views/article/artic
 const articleMine = r => require.ensure([], () => r(require('../views/article/articleMine')), 'articleMine');
 const editArticleMine = r => require.ensure([], () => r(require('../views/article/editArticleMine')), 'editArticleMine');
 const topicSquare = r => require.ensure([], () => r(require('../views/article/topicSquare')), 'topicSquare');
+const askDetail = r => require.ensure([], () => r(require('../views/article/askDetail')), 'askDetail');
 
 const mine = r => require.ensure([], () => r(require('../views/mine/mine')), 'mine');
 const resume = r => require.ensure([], () => r(require('../views/mine/resume')), 'resume');
@@ -108,6 +109,14 @@ export default new Router({
       path: '/specialRecruit',
       name: 'specialRecruit',
       component: specialRecruit,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/article/askDetail',
+      name: 'askDetail',
+      component: askDetail,
       meta: {
         direction: 'slide-left'
       }

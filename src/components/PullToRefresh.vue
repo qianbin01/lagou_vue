@@ -121,11 +121,11 @@
       pullRefreshTopHeight(newValue) {
         if (newValue !== 0) {
           this.$nextTick(function () {
-            $('#refreshBox').css({height: newValue, paddingTop: newValue / 2 + 20});
+            $('#refreshBox').css({paddingTop: newValue / 2 + 20});
           });
         } else {
           this.$nextTick(function () {
-            $('#refreshBox').css({height: 40, paddingTop: 20});
+            $('#refreshBox').css({paddingTop: 20});
           });
         }
       }
@@ -179,8 +179,8 @@
   @import "../style/mixin";
 
   .pull-to-refresh-app {
-    .refreshing-box {
-      padding-top: 20px;
+    #refreshBox {
+      line-height: 40px;
       height: 40px;
       text-align: center;
     }

@@ -19,7 +19,10 @@
         <img src="../../assets/img/notFound.png">
         <div>对不起嘛，我数据就这么多拉</div>
       </div>
-      <div class="article_item" v-for="item in articleList" v-show="articleList.length>0">
+      <div class="article_item"
+           v-for="item in articleList"
+           @click="$router.push('/article/askDetail')"
+           v-show="articleList.length>0">
         <div class="from_title">
           来自话题:&nbsp&nbsp&nbsp<span>{{item.news.source}}</span>
         </div>

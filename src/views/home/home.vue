@@ -182,6 +182,7 @@
   .home-container {
     width: 100%;
     background: #eeeeef;
+    overflow-y: hidden;
     .hot_container {
       background: white;
       display: flex;
@@ -228,9 +229,9 @@
       }
     }
     .middle_container {
-      margin: 0.2rem 0;
+      margin: 0.2rem auto;
       background: white;
-      width: 100%;
+      width: 90%;
       padding: 0.2rem 0.5rem;
       .three-tab {
         margin-top: 0.3rem;
@@ -288,7 +289,7 @@
         align-items: center;
         justify-content: space-between;
         border-bottom: #dedede solid 1px;
-        padding: 0.6rem 0;
+        padding: 0.3rem 0;
         .header-title {
           text-align: center;
           margin: 0.2rem 0.5rem;
