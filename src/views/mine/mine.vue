@@ -112,15 +112,18 @@
     .top_container {
       background: white;
       width: 100%;
-      padding: 0.3rem 0.5rem;
+      padding-bottom: .6rem;
       position: relative;
       margin-bottom: 0.3rem;
       .name-div {
+        width: 90%;
+        margin: 0 auto;
         font-size: 0.4rem;
         padding-top: 1rem;
         padding-bottom: 0.1rem;
       }
       .introduce-div {
+        margin-left: 5%;
         color: #cccccc;
         width: 60%;
         padding-bottom: 0.05rem;
@@ -128,6 +131,7 @@
         text-overflow: ellipsis;
       }
       .edit-div {
+        margin-left: 5%;
         margin-top: 0.3rem;
         padding: 0.05rem 0.3rem;
         font-size: 0.28rem;
@@ -138,7 +142,7 @@
         }
       }
       .items-div {
-        margin-top: 1.2rem;
+        margin-top: .6rem;
         display: flex;
         justify-content: space-around;
         text-align: center;

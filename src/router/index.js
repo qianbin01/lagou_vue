@@ -14,7 +14,11 @@ const recruitDetailList = r => require.ensure([], () => r(require('../views/home
 
 
 const company = r => require.ensure([], () => r(require('../views/company/company')), 'company');
+
 const articles = r => require.ensure([], () => r(require('../views/article/articles')), 'articles');
+const articleMine = r => require.ensure([], () => r(require('../views/article/articleMine')), 'articleMine');
+const editArticleMine = r => require.ensure([], () => r(require('../views/article/editArticleMine')), 'editArticleMine');
+const topicSquare = r => require.ensure([], () => r(require('../views/article/topicSquare')), 'topicSquare');
 
 const mine = r => require.ensure([], () => r(require('../views/mine/mine')), 'mine');
 const resume = r => require.ensure([], () => r(require('../views/mine/resume')), 'resume');
@@ -104,6 +108,30 @@ export default new Router({
       path: '/specialRecruit',
       name: 'specialRecruit',
       component: specialRecruit,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/article/articleMine',
+      name: 'articleMine',
+      component: articleMine,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/article/editArticleMine',
+      name: 'editArticleMine',
+      component: editArticleMine,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/article/topicSquare',
+      name: 'topicSquare',
+      component: topicSquare,
       meta: {
         direction: 'slide-left'
       }

@@ -20,13 +20,18 @@
         if (from.meta && from.meta.direction === 'slide-left') {
           this.transition = 'slide-right';
           if (to.meta.direction === 'slide-left') {
-            if (to.name !== 'like' && from.name !== 'likeCompany') {
-              this.transition = to.meta.direction
-            }
+            this.transition = to.meta.direction
+          }
+          if (
+            (to.name === 'like' && from.name === 'likeCompany') ||
+            (to.name === 'articleMine' && from.name === 'editArticleMine')
+          ) {
+            this.transition = 'slide-right';
           }
         } else {
           this.transition = to.meta.direction || 'fade';
         }
+
       }
     },
     mounted() {

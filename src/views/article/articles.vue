@@ -11,7 +11,7 @@
         言<span>职</span>
       </div>
       <div class="right-mine" slot="right">
-        <img src="../../assets/img/search/mine.png">
+        <img src="../../assets/img/search/mine.png" @click="$router.push('/article/articleMine')">
       </div>
     </m-header>
     <div class="article_list" v-show="tabClick===1||tabClick===2">
@@ -56,7 +56,7 @@
                 </div>
               </div>
             </div>
-            <div class="topic-more-item">
+            <div class="topic-more-item" @click="$router.push('/article/topicSquare')">
               <img src="../../assets/img/article/eye.png">
               <div class="more-div">
                 查看更多栏目 >
