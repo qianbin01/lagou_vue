@@ -43,7 +43,60 @@
       </div>
     </div>
     <div class="item_container">
-
+      <div class="item_line">
+        <div>
+          <img src="../../assets/img/article/call.png">
+          言职社区通知
+        </div>
+        <div>
+          <img src="../../assets/img/arrow/arrow-right.png">
+        </div>
+      </div>
+      <div class="item_line">
+        <div>
+          <img src="../../assets/img/article/topic.png">
+          关注的话题
+        </div>
+        <div>
+          <img src="../../assets/img/arrow/arrow-right.png">
+        </div>
+      </div>
+      <div class="item_line">
+        <div>
+          <img src="../../assets/img/article/answer.png">
+          回答
+        </div>
+        <div>
+          <img src="../../assets/img/arrow/arrow-right.png">
+        </div>
+      </div>
+      <div class="item_line">
+        <div>
+          <img src="../../assets/img/article/ask.png">
+          提问
+        </div>
+        <div>
+          <img src="../../assets/img/arrow/arrow-right.png">
+        </div>
+      </div>
+      <div class="item_line">
+        <div>
+          <img src="../../assets/img/article/collect.png">
+          点赞
+        </div>
+        <div>
+          <img src="../../assets/img/arrow/arrow-right.png">
+        </div>
+      </div>
+      <div class="item_line">
+        <div>
+          <img src="../../assets/img/article/draft.png">
+          草稿
+        </div>
+        <div>
+          <img src="../../assets/img/arrow/arrow-right.png">
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -122,6 +175,24 @@
         .count_text {
           margin-top: .1rem;
           color: #aaaaaa;
+        }
+      }
+    }
+    .item_container {
+      margin-top: .3rem;
+      background: white;
+      .item_line {
+        width: 90%;
+        margin: 0 auto;
+        padding: .5rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: #dedede solid 1px;
+        img {
+          width: .5rem;
+          margin-right: .2rem;
+          vertical-align: middle;
         }
       }
     }
