@@ -11,9 +11,10 @@ const newsList = r => require.ensure([], () => r(require('../views/home/newsList
 const newsDetail = r => require.ensure([], () => r(require('../views/home/newsDetail')), 'newsDetail');
 const specialRecruit = r => require.ensure([], () => r(require('../views/home/specialRecruit')), 'specialRecruit');
 const recruitDetailList = r => require.ensure([], () => r(require('../views/home/recruitDetailList')), 'recruitDetailList');
-
+const recruitDetail = r => require.ensure([], () => r(require('../views/home/recruitDetail')), 'recruitDetail');
 
 const company = r => require.ensure([], () => r(require('../views/company/company')), 'company');
+const companyDetail = r => require.ensure([], () => r(require('../views/company/companyDetail')), 'companyDetail');
 
 const articles = r => require.ensure([], () => r(require('../views/article/articles')), 'articles');
 const articleMine = r => require.ensure([], () => r(require('../views/article/articleMine')), 'articleMine');
@@ -109,6 +110,22 @@ export default new Router({
       path: '/specialRecruit',
       name: 'specialRecruit',
       component: specialRecruit,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/recruit/recruitDetail',
+      name: 'recruitDetail',
+      component: recruitDetail,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/company/companyDetail',
+      name: 'companyDetail',
+      component: companyDetail,
       meta: {
         direction: 'slide-left'
       }
