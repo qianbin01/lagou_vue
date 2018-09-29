@@ -37,8 +37,6 @@
 爬虫：
 + python3
 
-人工智能:
-+ tenserflow
 # 效果演示
 ### 首次载入
 ![](screenshots/loading.gif)
@@ -50,6 +48,8 @@
 # 线上地址
 
 # 说明
+前端地址:https://github.com/qianbin01/lagou_vue
+
 代理api地址:https://github.com/qianbin01/lagou_node
 
 api地址:https://github.com/qianbin01/lagou_python_api
@@ -65,7 +65,7 @@ ubuntu 16.04
   4. 运行本项目
   
   本项目步骤：
-  1. git clone https://github.com/qianbin01/lagou_vue
+  1. git clone https://github.com/qianbin01/lagou_vue.git
   2. cd lagou_vue
   3. npm install/yarn install
   4. npm run dev/npm start
@@ -74,7 +74,8 @@ ubuntu 16.04
 
 # 点点你们的小手吧
 知乎专栏：https://zhuanlan.zhihu.com/c_1010582778160779264
-
+掘金:https://juejin.im/user/5b8291bce51d4538ab043911
+思否:https://segmentfault.com/u/qishidexinxin
 
 希望对大家有帮助
 
