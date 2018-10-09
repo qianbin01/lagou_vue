@@ -1,4 +1,4 @@
-import Mock from 'Mock';
+import Mock from 'mockjs';
 import data from './mockData';
 
 //mock数据加载
