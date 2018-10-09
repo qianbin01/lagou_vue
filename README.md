@@ -110,9 +110,9 @@ ubuntu 16.04
   
 
 # 点点你们的小手吧
-知乎专栏：https://zhuanlan.zhihu.com/c_1010582778160779264
-掘金:https://juejin.im/user/5b8291bce51d4538ab043911
-思否:https://segmentfault.com/u/qishidexinxin
+知乎专栏：https://zhuanlan.zhihu.com/c_1010582778160779264 <br>
+掘金:https://juejin.im/user/5b8291bce51d4538ab043911 <br>
+思否:https://segmentfault.com/u/qishidexinxin <br>
 
 希望对大家有帮助
 
