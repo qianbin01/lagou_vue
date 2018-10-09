@@ -91,7 +91,7 @@
       }
     },
     mounted() {
-      this.BaseApi.article.getArticle(res => {
+      this.BaseApi.article.getArticles(res => {
         this.articleList = res.data.dataList;
       });
       this.BaseApi.topic.getTopic(res => {

@@ -2,10 +2,12 @@
   <div class="sort-container">
     <div class="city_type_div" v-if="sortType==='city'">
       <div class="loc_tabs">
-        <div class="loc_tab checked_loc_tab">
+        <div class="loc_tab " :class="{checked_loc_tab:checkedTab==='business'}"
+             @click="chooseTab('business')">
           商圈
         </div>
-        <div class="loc_tab">
+        <div class="loc_tab" :class="{checked_loc_tab:checkedTab==='subway'}"
+             @click="chooseTab('subway')">
           地铁
         </div>
       </div>
@@ -17,39 +19,10 @@
           <div class="loc_item">
             全杭州
           </div>
-          <div class="loc_item">
-            全杭州
-          </div>
+
         </div>
         <div class="loc_right">
           <div class="loc_item checked_loc_tab">
-            全杭州
-          </div>
-          <div class="loc_item">
-            全杭州
-          </div>
-          <div class="loc_item">
-            全杭州
-          </div>
-          <div class="loc_item ">
-            全杭州
-          </div>
-          <div class="loc_item ">
-            全杭州
-          </div>
-          <div class="loc_item ">
-            全杭州
-          </div>
-          <div class="loc_item">
-            全杭州
-          </div>
-          <div class="loc_item">
-            全杭州
-          </div>
-          <div class="loc_item ">
-            全杭州
-          </div>
-          <div class="loc_item">
             全杭州
           </div>
           <div class="loc_item">
@@ -67,7 +40,10 @@
         工作经验
       </div>
       <div class="msg_tags_container">
-        <div class="msg_tag" v-for="tag in 	experience">
+        <div class="msg_tag"
+             @click="toggleList(checkedExperienceTags,tag)"
+             :class="{checkedTag:checkedExperienceTags.includes(tag)}"
+             v-for="tag in 	experience">
           {{tag}}
         </div>
       </div>
@@ -75,7 +51,10 @@
         学历要求
       </div>
       <div class="msg_tags_container">
-        <div class="msg_tag" v-for="tag in education">
+        <div class="msg_tag"
+             @click="toggleList(checkedEducationTags,tag)"
+             :class="{checkedTag:checkedEducationTags.includes(tag)}"
+             v-for="tag in education">
           {{tag}}
         </div>
       </div>
@@ -85,7 +64,10 @@
         融资阶段
       </div>
       <div class="msg_tags_container">
-        <div class="msg_tag" v-for="tag in 	financing">
+        <div class="msg_tag"
+             @click="toggleList(checkedFinanceTags,tag)"
+             :class="{checkedTag:checkedFinanceTags.includes(tag)}"
+             v-for="tag in 	financing">
           {{tag}}
         </div>
       </div>
@@ -93,7 +75,10 @@
         行业领域
       </div>
       <div class="msg_tags_container">
-        <div class="msg_tag" v-for="tag in industry">
+        <div class="msg_tag"
+             @click="toggleList(checkedIndustryTags,tag)"
+             :class="{checkedTag:checkedIndustryTags.includes(tag)}"
+             v-for="tag in industry">
           {{tag}}
         </div>
       </div>
@@ -114,11 +99,16 @@
       return {
         leftText: '',
         rightText: '',
+        checkedTab: 'business',
         experience: ['应届毕业生', '3年及以下', '3-5年', '5-10年', '10年以上', '经验不限'],
         education: ['大专', '本科', '硕士', '博士', '不要求'],
         financing: ['未融资', '天使轮', 'A轮', 'B轮', 'C轮', 'D轮及以上', '上市公司', '不需要融资'],
         industry: ['不限', '移动互联网', '电子商务', '社交网络', '企业服务', '教育', '游戏', '人工智能',
           '旅游', '金融', '医疗健康', '生活服务', '信息安全', '数据服务', '广告营销', '文化娱乐', '硬件', '分类信息', '招聘', '其他'],
+        checkedExperienceTags: [],
+        checkedEducationTags: [],
+        checkedFinanceTags: [],
+        checkedIndustryTags: [],
       }
     },
     mounted() {
@@ -129,7 +119,18 @@
       },
       rightChange(value) {
         this.rightText = value;
-      }
+      },
+      chooseTab(flag) {
+        this.checkedTab = flag
+      },
+      toggleList(list, tag) {
+        if (list.includes(tag)) {
+          list.splice(list.indexOf(tag), 1)
+        } else {
+          list.push(tag);
+        }
+      },
+
     },
     computed: {
       salary() {
@@ -202,6 +203,10 @@
         text-align: center;
         min-width: 1.6rem;
         margin: 0.2rem;
+      }
+      .checkedTag {
+        background: $themeColor;
+        color: white;
       }
     }
     .submit_class {

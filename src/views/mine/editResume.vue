@@ -32,7 +32,7 @@
 
     </div>
     <div class="preview_resume_container">
-      <div class="preview_resume">
+      <div class="preview_resume" @click="$router.push('/mine/priviewResume')">
         预览简历
       </div>
     </div>

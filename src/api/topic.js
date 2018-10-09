@@ -1,9 +1,11 @@
 import http from './index'
-//公司类api
-const getTopic = (res) => {
-  http.get('/api/topic/list', res);
-};
+//话题类api
 
 export default {
-  getTopic: getTopic
+  getTopic: (res) => {
+    http.get('/api/topic/list', res);
+  },
+  getSingleTopic: (res, tid) => {
+    http.get('/api/topic/single', res, {tid: tid})
+  }
 }

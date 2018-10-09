@@ -122,7 +122,9 @@
       return {}
     },
     mounted() {
-      $('.detail_container').css({'paddingTop': $('.header-container').innerHeight()});
+      setTimeout(function () {
+        $('.detail_container').css({'paddingTop': $('.header-container').innerHeight()});
+      }, 500);
     },
     methods: {},
     computed: {},

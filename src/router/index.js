@@ -25,6 +25,7 @@ const askDetail = r => require.ensure([], () => r(require('../views/article/askD
 const mine = r => require.ensure([], () => r(require('../views/mine/mine')), 'mine');
 const resume = r => require.ensure([], () => r(require('../views/mine/resume')), 'resume');
 const editResume = r => require.ensure([], () => r(require('../views/mine/editResume')), 'editResume');
+const priviewResume = r => require.ensure([], () => r(require('../views/mine/priviewResume')), 'priviewResume');
 const send = r => require.ensure([], () => r(require('../views/mine/send')), 'send');
 const like = r => require.ensure([], () => r(require('../views/mine/like')), 'like');
 const likeCompany = r => require.ensure([], () => r(require('../views/mine/likeCompany')), 'likeCompany');
@@ -206,6 +207,14 @@ export default new Router({
       path: '/mine/cc',
       name: 'cc',
       component: cc,
+      meta: {
+        direction: 'slide-left'
+      }
+    },
+    {
+      path: '/mine/priviewResume',
+      name: 'priviewResume',
+      component: priviewResume,
       meta: {
         direction: 'slide-left'
       }

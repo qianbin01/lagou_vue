@@ -1,9 +1,14 @@
 import http from './index'
-//公司类api
+//职位类api
 const getRecruit = (res) => {
   http.get('/api/recruit/list', res);
 };
 
 export default {
-  getRecruit: getRecruit
+  getRecruit: (res) => {
+    http.get('/api/recruit/list', res);
+  },
+  getSingleRecruit: (res, rid) => {
+    http.get('/api/recruit/single', res, {rid: rid})
+  }
 }

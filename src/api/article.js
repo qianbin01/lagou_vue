@@ -1,8 +1,11 @@
 import http from './index'
-//公司类api
-const getArticle = (res) => {
-  http.get('/api/article/list', res);
-};
+//提问类
+
 export default {
-  getArticle: getArticle
+  getArticles: (res) => {
+    http.get('/api/article/list', res);
+  },
+  getSingleArticle: (res, aid) => {
+    http.get('/api/article/single', res, {aid: aid});
+  },
 }

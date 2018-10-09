@@ -75,7 +75,7 @@
       }
     },
     mounted() {
-      this.BaseApi.company.getCompany(res => {
+      this.BaseApi.company.getCompanies(res => {
         this.items = res.data.dataList;
       });
       $('.recruitList-scroll-container').css({'marginTop': $('.header-container').innerHeight()});

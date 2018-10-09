@@ -15,9 +15,9 @@
       }
     },
     mounted() {
-      this.BaseApi.news.getNewsSingle(res => {
+      this.BaseApi.news.getSingleNews(res => {
         this.detail = res.data.object.content;
-      });
+      }, 1);
     },
     methods: {},
     computed: {},

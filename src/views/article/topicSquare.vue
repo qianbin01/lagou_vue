@@ -194,7 +194,9 @@
     },
     mounted() {
       let that = this;
-      $('.detail_container').css({'paddingTop': $('.header-container').innerHeight()});
+      setTimeout(function () {
+        $('.detail_container').css({'paddingTop': $('.header-container').innerHeight()});
+      }, 500);
       $('.detail_container').scroll(function () {
         if (this.scrollTop + this.clientHeight > this.scrollHeight - 10) {
           console.log('滑动到底部了');
